@@ -74,6 +74,11 @@ public class PlayerMovement : MonoBehaviour
         dashTimeRemaining = maxDashTime;
     }
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void OnEnable()
     {
         input.Enable();
@@ -85,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Jump.canceled += OnJumpCancelled;
         input.Player.Dash.performed += OnDashPerformed;
         input.Player.Dash.canceled += OnDashCancelled;
+        input.Player.Look.performed += OnLookPerformed;
+
     }
 
     private void OnDisable()
@@ -98,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Jump.canceled -= OnJumpCancelled;
         input.Player.Dash.performed -= OnDashPerformed;
         input.Player.Dash.canceled -= OnDashCancelled;
+        input.Player.Look.performed += OnLookPerformed;
     }
 
     private void FixedUpdate()
@@ -218,6 +226,21 @@ public class PlayerMovement : MonoBehaviour
         {
             countRechargeDelay = rechargeDelay;
         }
+    }
+
+    private Vector2 rotationVector = Vector2.zero;
+
+    private float yRotation = 0f;
+    [SerializeField] private float sens = 25f;
+    private void OnLookPerformed(InputAction.CallbackContext value)
+    {
+        rotationVector = value.ReadValue<Vector2>();
+
+        float mouseX = rotationVector.x * Time.deltaTime * sens;
+
+        yRotation += mouseX;
+
+        transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 
 }

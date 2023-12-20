@@ -32,7 +32,6 @@ public class CameraMovement : MonoBehaviour
         input.Enable();
 
         //subscribe to events
-        input.Camera.Look.performed += OnCameraMove;
     }
 
     private void OnDisable()
@@ -40,7 +39,6 @@ public class CameraMovement : MonoBehaviour
         input.Disable();
 
         //unsubscribe from events
-        input.Camera.Look.performed -= OnCameraMove;
 
     }
 
