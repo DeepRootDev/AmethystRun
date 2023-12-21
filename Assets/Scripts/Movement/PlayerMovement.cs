@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteJumpForce = 10f;
 
     [SerializeField]
-    private float fallingScalar = 1.0f;
+    private float gravityScale = 1.0f;
 
+    [SerializeField]
+    private float fallingMagnitude = 10f;
 
     [SerializeField]
     private GameObject floorSensor;
@@ -155,7 +157,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = airDrag;
             onGround = false;
-            rb.AddForce(Vector3.down * -Physics.gravity.y * fallingScalar, ForceMode.Acceleration);
+
+            if (rb.velocity.y < 0)
+            {
+                rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
+            }
+            else
+            {
+                rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+            }
         }
     }
 
