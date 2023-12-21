@@ -85,8 +85,8 @@ Material:
     - _AoIntensity: 1
     - _BlendMainNormal: 0
     - _BlendmodeOverlay: 0
-    - _Brightness: 1.54
-    - _BumpScale: 1
+    - _Brightness: 1.13
+    - _BumpScale: 13
     - _ContrastDetailMap: 0
     - _Cull: 0
     - _Cutoff: 0.5
@@ -101,7 +101,7 @@ Material:
     - _EnableDetailMask: 0
     - _EnableTriplanarProjection: 1
     - _GlossMapScale: 0.771
-    - _Glossiness: 0.35
+    - _Glossiness: 0.9
     - _GlossyReflections: 1
     - _IntensityMask: 1
     - _InvertABaseColor: 0
@@ -114,7 +114,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Source: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.02
+    - _SpecularIntensity: 0.36
     - _SpreadDetailMap: 0
     - _SrcBlend: 1
     - _TriplanarFalloff: 20
@@ -127,7 +127,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.9622642, g: 0.73985404, b: 0.73985404, a: 1}
+    - _Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 0}
     - _DetailSpecularColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0.9460624, g: 0.1740398, b: 0.1740398, a: 1}
