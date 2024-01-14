@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 466d6756a13749942afe73a93884e62b
+guid: e2662edcf711b7945bff4d0303262013
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBoc_TopCorner
+    second: {fileID: 2100000, guid: 955a9b69c89589a4f8800db569911d0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBox_Bone
+    second: {fileID: 2100000, guid: 03a70c0209ca0274dbb9957ec38b96af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBox_Bot
+    second: {fileID: 2100000, guid: 3c0de460ae3d84e4fab8204b62220f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBox_BotCorner
+    second: {fileID: 2100000, guid: 331e4b85393820444a502949b046ab95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBox_Screen
+    second: {fileID: 2100000, guid: b169b4cab59a14e468b8b3901f6430ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VoiceBox_Top
+    second: {fileID: 2100000, guid: f1a756ff15d00804b8fa95cfeae63940, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +67,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
