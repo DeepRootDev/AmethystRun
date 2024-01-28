@@ -134,9 +134,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
         }
-
-
-
     }
 
     private void Update()
