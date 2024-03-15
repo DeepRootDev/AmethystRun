@@ -11,13 +11,18 @@ public class AddToInventoryOnCollide : MonoBehaviour
     public string playerTag = "Player";
     public string botTag = "Bot";
 
+    private void Start()
+    {
+        TurnOnMaterial();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
         if (other.gameObject.CompareTag(playerTag))
         {
             other.gameObject.GetComponent<PlayerPickups>().pickedUpItem(typeToSpawn);
-            TurnOnMaterial();
+            TurnOffMaterial();
         }
         else if (other.gameObject.CompareTag(botTag))
         {

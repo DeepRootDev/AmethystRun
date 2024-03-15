@@ -1,4 +1,0 @@
-repository "AmethystRun@Deep_Root@cloud"
-  path "/"
-    br "/main"
-    co "/main"

@@ -8,23 +8,26 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BigTree_Flowerlay
-  m_Shader: {fileID: 4800000, guid: 2914c939860ab3b40b0972bf8aedb87f, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
+  - _NORMALMAP
+  m_InvalidKeywords:
   - _DETAILSOURCE_SPECULARALPHA
+  - _ENABLETRIPLANARPROJECTION_ON
   - _SOURCE_SPECULARALPHA
   - _TRIPLANARSPACEPROJECTION_OBJECTSPACE
-  m_InvalidKeywords:
-  - _ENABLETRIPLANARPROJECTION_ON
   - _USEAOFROMMAINPROPERTIES_ON
   - _USEBASECOLORALPHA_ON
   - _USEEMISSIONFROMMAINPROPERTIES_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -112,7 +115,7 @@ Material:
     - _InvertMask: 0
     - _InvertTransparent: 0
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Saturation: 0

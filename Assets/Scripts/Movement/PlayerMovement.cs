@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -92,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Jump.canceled += OnJumpCancelled;
         input.Player.Dash.performed += OnDashPerformed;
         input.Player.Dash.canceled += OnDashCancelled;
-        input.Player.Look.performed += OnLookPerformed;
 
     }
 
@@ -107,11 +107,11 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Jump.canceled -= OnJumpCancelled;
         input.Player.Dash.performed -= OnDashPerformed;
         input.Player.Dash.canceled -= OnDashCancelled;
-        input.Player.Look.performed += OnLookPerformed;
     }
 
     private void FixedUpdate()
     {
+        Look();
         moveDirection = transform.forward * moveVector.y + transform.right * moveVector.x;
 
         if (!dashing)
@@ -134,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
         }
+
     }
 
     private void Update()
@@ -168,7 +169,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        moveVector = value.ReadValue<Vector2>();
+        moveVector = Vector2.Lerp(moveVector, value.ReadValue<Vector2>(), 1);
+        moveVector.x /= 2;        
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext value)
@@ -238,16 +240,21 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 rotationVector = Vector2.zero;
 
     private float yRotation = 0f;
-    [SerializeField] private float sens = 25f;
-    private void OnLookPerformed(InputAction.CallbackContext value)
+    [SerializeField] private CinemachineVirtualCamera vc;
+
+    void Look()
     {
-        rotationVector = value.ReadValue<Vector2>();
+        vc.m_Lens.FieldOfView = Mathf.Lerp(vc.m_Lens.FieldOfView, 55 + moveVector.y * 5 + moveVector.x * 4, 0.05f);
+        CinemachineBasicMultiChannelPerlin pn = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        float mouseX = rotationVector.x * Time.deltaTime * sens;
+        pn.m_AmplitudeGain = Mathf.Lerp(pn.m_AmplitudeGain, moveVector.y /2 + 1, 0.2f);
 
-        yRotation += mouseX;
+        yRotation += moveVector.x * 4;
+        Vector3 faceDirection = new Vector3(0, yRotation, 0);
+        Quaternion targetRotation = Quaternion.Euler(faceDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.3f);
 
-        transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
+
     }
 
 }
