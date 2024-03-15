@@ -134,11 +134,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
         }
-
-    }
-
-    private void Update()
-    {
         if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
         {
             //If we're on the ground, on the previous frame, were we already grounded?
@@ -165,6 +160,11 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
             }
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
