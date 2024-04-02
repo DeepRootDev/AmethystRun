@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "app.rive.rive-unity": {
+      "version": "file:C:/Users/Owner/Desktop/Deep Rooted Games/AmethstRun/rive-unity-0.1.106/rive-unity-0.1.106/package",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.cinemachine": {
       "version": "2.9.7",
       "depth": 0,
