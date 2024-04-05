@@ -8,16 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PalmTree_LeafSwirl
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 2914c939860ab3b40b0972bf8aedb87f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _NORMALMAP
-  m_InvalidKeywords:
   - _DETAILSOURCE_SPECULARALPHA
-  - _ENABLETRIPLANARPROJECTION_ON
   - _SOURCE_SPECULARALPHA
   - _TRIPLANARSPACEPROJECTION_OBJECTSPACE
+  m_InvalidKeywords:
+  - _ENABLETRIPLANARPROJECTION_ON
+  - _METALLICGLOSSMAP
+  - _NORMALMAP
   - _USEAOFROMMAINPROPERTIES_ON
   - _USEBASECOLORALPHA_ON
   - _USEEMISSIONFROMMAINPROPERTIES_ON
@@ -60,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b4fb10a866470ed47b86fe6cc68f8292, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

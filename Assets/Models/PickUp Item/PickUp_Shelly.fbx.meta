@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: PickUP_BottomShell
+    second: {fileID: 2100000, guid: 2a6e667771b0bd545bb1aa639e39fa4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PickUP_Gem
     second: {fileID: 2100000, guid: a4c29e8597bc90242a585cf5d08ed133, type: 2}
   - first:
@@ -14,6 +19,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: PickUP_InnerGem
     second: {fileID: 2100000, guid: fd3d59ff935c0e041960d20c6fa5aee8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PickUP_TopShell
+    second: {fileID: 2100000, guid: f1badf09bfa390c4ca8432594f3be29d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PickUp_Rings
+    second: {fileID: 2100000, guid: a73240bc19d14124a8dda9cfdca17a2a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
