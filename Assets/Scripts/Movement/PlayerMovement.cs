@@ -81,7 +81,24 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
+    Vector3 CalculateForward(Vector3 toBeCalculated)
+    {
+        float currentY = toBeCalculated.y;
+        Vector3 CameraForward = Camera.main.transform.forward;
+        Vector3 CameraRight = Camera.main.transform.right;
+        CameraForward.y = 0;
+        CameraRight.y = 0;
 
+        CameraForward.Normalize();
+        CameraRight.Normalize();
+
+        Vector3 ForwardProduct = toBeCalculated.z * CameraForward;
+        Vector3 RightProduct = toBeCalculated.x * CameraRight;
+
+        Vector3 RotatedVector = ForwardProduct + RightProduct;
+        RotatedVector.y = currentY;
+        return RotatedVector;
+    }
     private void OnEnable()
     {
         input.Enable();
@@ -111,9 +128,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Look();
-        moveDirection = transform.forward * moveVector.y + transform.right * moveVector.x;
-
+        Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
+        //Look();
+        moveDirection = CalculateForward(dir);
+        if (moveDirection.magnitude != 0)
+        {
+            Quaternion rot = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
+        }
         if (!dashing)
         {
             RechargeDash();
@@ -170,9 +192,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = Vector2.Lerp(moveVector, value.ReadValue<Vector2>(), 1);
-        moveVector.x /= 2;        
+        //moveVector.x /= 2;        
     }
-
+    
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         moveVector = Vector2.zero;
