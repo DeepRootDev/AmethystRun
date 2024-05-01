@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashDistance = 3f;
     [SerializeField] private float additionalDashSpeed = 5f;
-    private float dashScalar = 0.0f;
+    private float dashScalar = 0.0f; 
 
     [SerializeField] private float rechargeDelay = 2.0f;
 
@@ -63,7 +63,8 @@ public class PlayerMovement : MonoBehaviour
     private bool dashing = false;
 
     private bool recharging = false;
-
+    [SerializeField]
+    LayerMask GroundLayer;
 
     public float GetDashTimeLeft() { return dashTimeRemaining; }
     public bool GetRecharging() { return recharging; }
@@ -126,6 +127,17 @@ public class PlayerMovement : MonoBehaviour
         input.Player.Dash.canceled -= OnDashCancelled;
     }
 
+    public float DistanceToGround()
+    {
+        Ray r = new Ray(transform.position,Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(r,out hit,10f , GroundLayer))
+        {
+            return hit.distance;
+        }
+        return 0f;
+    }
+
     private void FixedUpdate()
     {
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
@@ -146,42 +158,53 @@ public class PlayerMovement : MonoBehaviour
             dashTimeRemaining -= Time.fixedDeltaTime;
             dashScalar = additionalDashSpeed;
         }
-
-
-        if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
+        print(DistanceToGround());
+        if (DistanceToGround() > 5)
         {
-            rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+            rb.AddForce((moveSpeed/2) * transform.forward, ForceMode.Acceleration);
+            airDrag = 10f;
         }
         else
         {
-            rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
-        }
-        if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
-        {
-            //If we're on the ground, on the previous frame, were we already grounded?
-            //No? don't do anything to the jumpCount.
-            if (!onGround)
+            if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
             {
-                jumpCount = 0;
-            }
-            onGround = true;
-            rb.drag = groundDrag;
-            falling = false;
-        }
-        else
-        {
-            rb.drag = airDrag;
-            onGround = false;
-
-            if (rb.velocity.y < 0)
-            {
-                rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
+                rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
             }
             else
             {
-                rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+                rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+            }
+            airDrag = 1f;
+
+            if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
+            {
+                //If we're on the ground, on the previous frame, were we already grounded?
+                //No? don't do anything to the jumpCount.
+                if (!onGround)
+                {
+                    jumpCount = 0;
+                }
+                onGround = true;
+                rb.drag = groundDrag;
+                falling = false;
+            }
+            else
+            {
+                rb.drag = airDrag;
+                onGround = false;
+
+                if (rb.velocity.y < 0)
+                {
+                    rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+                }
             }
         }
+        
+        
     }
 
     private void Update()
