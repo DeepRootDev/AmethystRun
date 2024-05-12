@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Recorder.OutputPath;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody rb = null;
     private Vector3 moveDirection;
-
+    bool isGliding;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float fallingMagnitude = 10f;
 
     [SerializeField]
-    private GameObject floorSensor;
+    private DetectGround floorSensor;
 
     [SerializeField]
     private float groundDrag = 5.0f;
@@ -54,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashDistance = 3f;
     [SerializeField] private float additionalDashSpeed = 5f;
-    private float dashScalar = 0.0f; 
-
+    private float dashScalar = 0.0f;
+    float NewX, NewZ;
     [SerializeField] private float rechargeDelay = 2.0f;
 
     private float countRechargeDelay = 2.0f;
@@ -131,9 +132,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Ray r = new Ray(transform.position,Vector3.down);
         RaycastHit hit;
-        if (Physics.Raycast(r,out hit,10f , GroundLayer))
+        if (Physics.Raycast(r,out hit, GroundLayer))
         {
-            return hit.distance;
+            return hit.distance;    
         }
         return 0f;
     }
@@ -143,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
         //Look();
         moveDirection = CalculateForward(dir);
-        if (moveDirection.magnitude != 0)
+        if (moveDirection.magnitude != 0 && !isGliding)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
@@ -158,15 +159,21 @@ public class PlayerMovement : MonoBehaviour
             dashTimeRemaining -= Time.fixedDeltaTime;
             dashScalar = additionalDashSpeed;
         }
-        print(DistanceToGround());
-        if (DistanceToGround() > 5)
+        
+        if (isGliding)
         {
-            rb.AddForce((moveSpeed/2) * transform.forward, ForceMode.Acceleration);
-            airDrag = 10f;
+
+            Quaternion rot = Quaternion.Euler(moveVector.y * 10f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 10f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
+
+            rb.AddForce((moveSpeed/2) * transform.forward * moveVector.y, ForceMode.Acceleration);
+            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            
+            airDrag = 600f;
         }
         else
         {
-            if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
+            if (floorSensor.IsGroundDetected())
             {
                 rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
             }
@@ -176,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
             }
             airDrag = 1f;
 
-            if (floorSensor.GetComponent<DetectGround>().IsGroundDetected())
+            if (floorSensor.IsGroundDetected())
             {
                 //If we're on the ground, on the previous frame, were we already grounded?
                 //No? don't do anything to the jumpCount.
@@ -209,6 +216,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift) )
+        {
+            isGliding = true;
+        }
+        if (DistanceToGround() < 2 && isGliding){
+            isGliding = false;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
+        {
+            rb.AddForce(transform.right * moveVector.x * 20f, ForceMode.Impulse);
+           
+        }
         
     }
 
@@ -235,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-            rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.Impulse);
+            rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
         }
 
     }
