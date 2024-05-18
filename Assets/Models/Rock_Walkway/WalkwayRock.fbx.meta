@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd7b4970ef0a3bc4a8c45a9eb66103c1
+guid: 22c39f0d8a5e2e94a8286037b9370cdd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Ancient_BoldRock
-    second: {fileID: 2100000, guid: e1c40b93dd1b9d443a3351af0ac5b3ad, type: 2}
+      name: Rock_Walkway
+    second: {fileID: 2100000, guid: ac36810236a0c4e4db832484a76e74e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WalkwayRock_MetakRing
+    second: {fileID: 2100000, guid: 9ac9b64e3fb56ae408e17dda36848a4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WalkwayRock_MetalBar
+    second: {fileID: 2100000, guid: 1fad1b2dcc204bd4f8873ddabceabd92, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
