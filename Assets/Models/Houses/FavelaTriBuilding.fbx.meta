@@ -3,7 +3,37 @@ guid: 821642bd654abab439d4902f0e0b19a7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_Door
+    second: {fileID: 2100000, guid: f7764db283ad2a74781002337e937f82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_DoorHandle
+    second: {fileID: 2100000, guid: de97618cff2fc5d4fbfbb64ba789f617, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_House
+    second: {fileID: 2100000, guid: 10a5ffc26f6138645a332793b159b5a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_SheetMetal
+    second: {fileID: 2100000, guid: aa286293358383f4ab1e7d66c4d3b70a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_Windows
+    second: {fileID: 2100000, guid: 04aeedff02e1fdd4190f8c9f841087b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaTriBuilding_WoodenStake
+    second: {fileID: 2100000, guid: fb7488bfd16eedc40ba58db48dbc9127, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,6 +70,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

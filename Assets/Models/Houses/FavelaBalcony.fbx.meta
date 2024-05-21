@@ -3,7 +3,32 @@ guid: 816aae428d30f3248bd82e3ab75de1da
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaBalcony_Balcony
+    second: {fileID: 2100000, guid: 62d316d698d87f44eb2f448e90a22637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaBalcony_Base
+    second: {fileID: 2100000, guid: 700d99601c56cc84b80ee90e0eaebf03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaBalcony_Windows
+    second: {fileID: 2100000, guid: 4f7c7905b5fed6f4f8e26e14bc22cb9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaBalcony_WindowsSill
+    second: {fileID: 2100000, guid: 46edfc8826c0b914e97807f57d502962, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FavelaBalcony_WoodenStake
+    second: {fileID: 2100000, guid: a902e01500b7f494aac54302def10bc6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,6 +65,7 @@ ModelImporter:
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
