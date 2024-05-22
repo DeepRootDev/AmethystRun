@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Amethyst_SpikeBullet
-    second: {fileID: 2100000, guid: 71e0b5d1ec1df094d886f0179373bf1e, type: 2}
+    second: {fileID: 2100000, guid: ee65dcf54cdcc30458609e5570cf48f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -42,9 +42,10 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
