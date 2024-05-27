@@ -859,7 +859,7 @@ MonoBehaviour:
   coyoteJumpForce: 100
   gravityScale: 1
   fallingMagnitude: 10
-  floorSensor: {fileID: 5099846533003760312}
+  floorSensor: {fileID: 5099846533003760311}
   groundDrag: 2
   airDrag: 1
   onGround: 1
@@ -872,6 +872,8 @@ MonoBehaviour:
   dashDistance: 10
   additionalDashSpeed: 5
   rechargeDelay: 2
+  OnWall: 0
+  WallTransform: {fileID: 0}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 0
