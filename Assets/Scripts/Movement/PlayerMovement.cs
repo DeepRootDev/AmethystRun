@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput input = null;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody rb = null;
-    private Vector3 moveDirection;
+    private Vector3 moveDirection,wallRunDirection;
     bool isGliding;
 
     [SerializeField]
@@ -62,7 +62,8 @@ public class PlayerMovement : MonoBehaviour
     private float countRechargeDelay = 2.0f;
 
     private bool dashing = false;
-
+    public bool OnWall;
+    public Transform WallTransform;
     private bool recharging = false;
     [SerializeField]
     LayerMask GroundLayer;
@@ -144,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
         //Look();
         moveDirection = CalculateForward(dir);
-        if (moveDirection.magnitude != 0 && !isGliding)
+        if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
@@ -163,24 +164,40 @@ public class PlayerMovement : MonoBehaviour
         if (isGliding)
         {
 
-            Quaternion rot = Quaternion.Euler(moveVector.y * 10f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 10f);
+            Quaternion rot = Quaternion.Euler(moveVector.y * 20f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 20f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
 
-            rb.AddForce((moveSpeed/2) * transform.forward * moveVector.y, ForceMode.Acceleration);
-            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            rb.AddForce((moveSpeed) * transform.forward * moveVector.y, ForceMode.Acceleration);
+            rb.AddForce((moveSpeed) * transform.right * moveVector.x, ForceMode.Acceleration);
             
             airDrag = 600f;
         }
         else
         {
-            if (floorSensor.IsGroundDetected())
+            if (!OnWall)
             {
-                rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                if (floorSensor.IsGroundDetected())
+                {
+                    rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                }
             }
             else
             {
-                rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                Vector3 direction = transform.forward;
+                direction.y = 0;
+                Quaternion LookRot = Quaternion.LookRotation(wallRunDirection);
+                Quaternion LookRight = Quaternion.Euler(0,transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x)*20f);
+                //Quaternion newRot = LookRight * LookRot;
+                transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
+                
+                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
             }
+            
             airDrag = 1f;
 
             if (floorSensor.IsGroundDetected())
@@ -200,13 +217,14 @@ public class PlayerMovement : MonoBehaviour
                 rb.drag = airDrag;
                 onGround = false;
 
-                if (rb.velocity.y < 0)
+                if (rb.velocity.y < 0 && !OnWall)
                 {
                     rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
                 }
                 else
                 {
-                    rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+                    if(!OnWall)
+                        rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
                 }
             }
         }
@@ -216,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) )
+        if (Input.GetMouseButton(0) )
         {
             isGliding = true;
         }
@@ -228,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(transform.right * moveVector.x * 20f, ForceMode.Impulse);
            
         }
-        
+         
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
@@ -258,7 +276,35 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].normal != Vector3.up && collision.contacts[0].normal != Vector3.down && collision.collider.CompareTag("Wall"))
+        {
+            wallRunDirection = collision.contacts[0].normal + transform.forward;
+            wallRunDirection.Normalize();
+            if (wallRunDirection.x < 0.01f || wallRunDirection.x > 0.05f)
+            {
+                wallRunDirection.x = 0.0f;
+                
+                WallTransform = collision.collider.transform;
+                OnWall = true;
+                //rb.isKinematic = true;
+                rb.useGravity = false;
+            }
+            
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (OnWall)
+        {
+            //WallTransform = collision.collider.transform;
+            OnWall = false;
+            //rb.isKinematic = true;
+            rb.useGravity = true;
+            //rb.velocity = Vector3.zero;
+        }
+    }
     private void OnJumpCancelled(InputAction.CallbackContext value)
     {
         falling = true;

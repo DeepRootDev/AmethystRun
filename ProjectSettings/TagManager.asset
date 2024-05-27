@@ -10,6 +10,7 @@ TagManager:
   - Red
   - Coyote
   - Bot
+  - Wall
   layers:
   - Default
   - TransparentFX
