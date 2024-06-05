@@ -94,7 +94,7 @@ Material:
     - _Cull: 0
     - _Cutoff: 0.5
     - _DetailBrightness: 1
-    - _DetailGlossiness: 0.5
+    - _DetailGlossiness: 0.547
     - _DetailNormalMapScale: 1
     - _DetailSaturation: 0
     - _DetailSource: 0
@@ -104,7 +104,7 @@ Material:
     - _EnableDetailMask: 0
     - _EnableTriplanarProjection: 1
     - _GlossMapScale: 1
-    - _Glossiness: 1.309
+    - _Glossiness: 1.234
     - _GlossyReflections: 1
     - _IntensityMask: 1
     - _IntensityTransparentMap: 0
@@ -119,7 +119,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Source: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.442
+    - _SpecularIntensity: 0.507
     - _SpreadDetailMap: 0
     - _SpreadTransparentMap: 0
     - _SrcBlend: 1

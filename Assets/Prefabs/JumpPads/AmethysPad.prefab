@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 9144924330599847098}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32501894, y: 0.10272582, z: -0.5872267}
+  m_LocalPosition: {x: -0.32501894, y: 2.57, z: -0.5872267}
   m_LocalScale: {x: 0.45454547, y: 0.45454547, z: 0.45454547}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -266,6 +266,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3153471
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3153471
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3153471
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,8 +324,20 @@ PrefabInstance:
       value: Amethyst_JumpPadOfficial
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035425622983110154, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146350642004888609, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -379,15 +403,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191254, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.5532556
+      value: 8.619805
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191254, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8.18
+      value: 10.75954
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191254, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.646906
+      value: 8.742989
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191254, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: m_LocalPosition.x
