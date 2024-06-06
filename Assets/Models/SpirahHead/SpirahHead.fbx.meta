@@ -3,7 +3,67 @@ guid: d06a161cb1053e346a66e9056466d901
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_BigNose
+    second: {fileID: 2100000, guid: 0ed7d5acc04c00b49b1137402e8df30b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_BigNoseLights
+    second: {fileID: 2100000, guid: eaba216ce1e0c2e4398c7b7ea8108b59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_Earing
+    second: {fileID: 2100000, guid: f782c6e2d6d882e4494518264cb80d64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_EaringLight
+    second: {fileID: 2100000, guid: d5964e0908e1bf54b8a76a9b9e7d7f6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_Flag
+    second: {fileID: 2100000, guid: edd482a2c87ba0b40882e9ad97a1077c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_SmallConnectors
+    second: {fileID: 2100000, guid: eb1f24069de8e64488705687b2d46c92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_SmallNose
+    second: {fileID: 2100000, guid: 276827abba0ba6448ae7fefd54a4ca33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahHead_SmallNoseLight
+    second: {fileID: 2100000, guid: 3e0fb4f488b6be94c88c2c687aab8cc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahSymbol_AmethystGem
+    second: {fileID: 2100000, guid: 3b2bb3723e2eb3f41a1ad95cc0598d65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahSymbol_CheekBone
+    second: {fileID: 2100000, guid: 15789b949834dff479d32272599aceb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahSymbol_CheekBoneLight
+    second: {fileID: 2100000, guid: a5073d74745b67a48acba9c7803669e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpirahSymbol_Eye
+    second: {fileID: 2100000, guid: b80e74f8f963139429b1a8f841d7a713, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,6 +100,7 @@ ModelImporter:
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
