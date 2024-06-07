@@ -528,6 +528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_SideWall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
