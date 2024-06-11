@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3836258223471191100}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.024432898, y: 13.63, z: 0.16492677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2212071093054501858}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6907514394673459283
 GameObject:
@@ -54,13 +54,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6907514394673459283}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.024432898, y: -4.39, z: 0.16492677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2212071093054501858}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7267796657191296859
 GameObject:
@@ -85,6 +85,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7267796657191296859}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
@@ -94,7 +95,6 @@ Transform:
   - {fileID: 4192564760741728910}
   - {fileID: 4474358839937394731}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3001139916108799290
 PrefabInstance:
@@ -152,13 +152,41 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1360052630715852940, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2814951
+      objectReference: {fileID: 0}
+    - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2814951
+      objectReference: {fileID: 0}
+    - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2814951
+      objectReference: {fileID: 0}
+    - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0068772
+      objectReference: {fileID: 0}
     - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.31
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1353476846514847294, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.046424
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
       propertyPath: m_Name
       value: Obstacle_AmethystForge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 931733176295256409, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
       propertyPath: m_TagString
