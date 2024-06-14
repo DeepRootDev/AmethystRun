@@ -519,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: {r: 0, g: 1, b: 0, a: 1}
   unactivated: {r: 1, g: 0, b: 0, a: 1}
-  typeToSpawn: 1
+  typeToSpawn: 0
   playerTag: Player
   botTag: Bot
 --- !u!135 &2026917535700949372
