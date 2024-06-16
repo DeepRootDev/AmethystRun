@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationAxis: {x: 0, y: -1, z: 0}
-  rotationSpeed: 250
+  rotationSpeed: 180
   activeRotation: 1
 --- !u!54 &5112044253813851479
 Rigidbody:
