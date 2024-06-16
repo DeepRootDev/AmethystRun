@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody rb = null;
     private Vector3 moveDirection,wallRunDirection;
-    bool isGliding;
+    [SerializeField]
+    bool isGliding,isGlidingFinished;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -67,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
     private bool recharging = false;
     [SerializeField]
     LayerMask GroundLayer;
-
+    [SerializeField]
+    float GlideDelay,GlideCounter;
     public float GetDashTimeLeft() { return dashTimeRemaining; }
     public bool GetRecharging() { return recharging; }
     private bool falling = false;
@@ -166,9 +168,9 @@ public class PlayerMovement : MonoBehaviour
 
             Quaternion rot = Quaternion.Euler(moveVector.y * 20f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 20f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
-
-            rb.AddForce((moveSpeed) * transform.forward * moveVector.y, ForceMode.Acceleration);
-            rb.AddForce((moveSpeed) * transform.right * moveVector.x, ForceMode.Acceleration);
+            //rb.velocity = Vector3.zero;
+            rb.AddForce(5f * transform.forward, ForceMode.Acceleration);
+            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
             
             airDrag = 600f;
         }
@@ -234,11 +236,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) )
+        if (Input.GetMouseButton(0) && !isGlidingFinished)
         {
+            
             isGliding = true;
         }
-        if (DistanceToGround() < 2 && isGliding){
+        if (Input.GetMouseButtonUp(0))
+        {
+            isGlidingFinished = false;
+            isGliding = false;
+        }
+        if (DistanceToGround() < 1 && isGliding){
+            isGlidingFinished = false;
             isGliding = false;
         }
         if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
@@ -246,7 +255,20 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(transform.right * moveVector.x * 20f, ForceMode.Impulse);
            
         }
-         
+        if (isGliding)
+        {
+            GlideCounter += Time.deltaTime;
+            if (GlideCounter >= GlideDelay)
+            {
+                isGlidingFinished = true;
+                isGliding = false;
+                GlideCounter = 0;
+            }
+        }
+        else
+        {
+            GlideCounter = 0;
+        }
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
