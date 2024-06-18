@@ -74,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
     public bool GetRecharging() { return recharging; }
     private bool falling = false;
     private bool apexReached;
+    [SerializeField]
+    Animator ModelAnimator;
     private void Awake()
     {
         input = new PlayerInput();
@@ -147,6 +149,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
         //Look();
         moveDirection = CalculateForward(dir);
+        ModelAnimator.SetFloat("Forward", moveDirection.magnitude);
+        ModelAnimator.SetBool("GlideStarter", isGliding);
+        ModelAnimator.SetBool("WallRun", OnWall);
         if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
@@ -165,14 +170,31 @@ public class PlayerMovement : MonoBehaviour
         
         if (isGliding)
         {
-
-            Quaternion rot = Quaternion.Euler(moveVector.y * 20f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 20f);
+            float Roty = 0;
+            if (moveVector.y < 0)
+            {
+                Roty = moveVector.y;
+            }
+            Quaternion rot = Quaternion.Euler(Roty* 40f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 40f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
             //rb.velocity = Vector3.zero;
-            rb.AddForce(5f * transform.forward, ForceMode.Acceleration);
-            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            if (moveVector.magnitude > 0)
+            {
+                ModelAnimator.SetBool("Gliding", true);
+                if (moveVector.y != 0)
+                {
+                    rb.AddForce((moveSpeed / 2) * transform.forward, ForceMode.Acceleration);
+                }
+            }
+            else
+            {
+                ModelAnimator.SetBool("Gliding", false);
+            }
             
-            airDrag = 600f;
+            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            rb.AddForce((-Physics.gravity.y/2) * Vector3.down, ForceMode.Acceleration);
+            
+            airDrag = 10f;
         }
         else
         {
@@ -180,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (floorSensor.IsGroundDetected())
                 {
+                    
                     rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
                 }
                 else
@@ -192,18 +215,19 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 direction = transform.forward;
                 direction.y = 0;
                 Quaternion LookRot = Quaternion.LookRotation(wallRunDirection);
-                Quaternion LookRight = Quaternion.Euler(0,transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x)*20f);
+                Quaternion LookRight = Quaternion.Euler(0,transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x)*40f);
                 //Quaternion newRot = LookRight * LookRot;
                 transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
                 transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
                 
-                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
+                rb.AddForce((20) * transform.forward, ForceMode.Acceleration);
             }
             
             airDrag = 1f;
 
             if (floorSensor.IsGroundDetected())
             {
+                ModelAnimator.SetBool("Air",false);
                 //If we're on the ground, on the previous frame, were we already grounded?
                 //No? don't do anything to the jumpCount.
                 if (!onGround)
@@ -216,6 +240,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                ModelAnimator.SetBool("Air", true);
                 rb.drag = airDrag;
                 onGround = false;
 
@@ -238,18 +263,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && !isGlidingFinished)
         {
-            
             isGliding = true;
         }
         if (Input.GetMouseButtonUp(0))
         {
             isGlidingFinished = false;
             isGliding = false;
+            ModelAnimator.SetBool("Gliding", false);
         }
-        if (DistanceToGround() < 1 && isGliding){
-            isGlidingFinished = false;
-            isGliding = false;
+        if (DistanceToGround() < 0.5f && isGliding){
+            //rb.AddForce(Vector3.up * (1), ForceMode.VelocityChange);
         }
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
         {
             rb.AddForce(transform.right * moveVector.x * 20f, ForceMode.Impulse);
@@ -257,6 +282,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isGliding)
         {
+            
             GlideCounter += Time.deltaTime;
             if (GlideCounter >= GlideDelay)
             {
@@ -284,7 +310,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext value)
     {
-        if (jumpCount < numberOfJumpsAllowed)
+        if (jumpCount < numberOfJumpsAllowed && !isGliding)
         {
             jumpCount++;
             float additionalJumpForce = 0.0f;
@@ -295,6 +321,7 @@ public class PlayerMovement : MonoBehaviour
 
             rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
             rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
+            ModelAnimator.SetTrigger("Jump");
         }
 
     }
@@ -307,7 +334,7 @@ public class PlayerMovement : MonoBehaviour
             if (wallRunDirection.x < 0.01f || wallRunDirection.x > 0.05f)
             {
                 wallRunDirection.x = 0.0f;
-                
+                ModelAnimator.SetTrigger("Wall");
                 WallTransform = collision.collider.transform;
                 OnWall = true;
                 //rb.isKinematic = true;
