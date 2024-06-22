@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float countRechargeDelay = 2.0f;
 
-    private bool dashing = false;
+    public  bool dashing = false;
     public bool OnWall;
     public Transform WallTransform;
     private bool recharging = false;
@@ -152,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
         ModelAnimator.SetFloat("Forward", moveDirection.magnitude);
         ModelAnimator.SetBool("GlideStarter", isGliding);
         ModelAnimator.SetBool("WallRun", OnWall);
+        ModelAnimator.SetBool("Dash", dashing);
         if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
@@ -161,11 +162,25 @@ public class PlayerMovement : MonoBehaviour
         {
             RechargeDash();
             dashScalar = 0;
+            dashParticles.gameObject.SetActive(false);
         }
         else
         {
-            dashTimeRemaining -= Time.fixedDeltaTime;
-            dashScalar = additionalDashSpeed;
+            
+            if (dashTimeRemaining > 0)
+            {
+                dashTimeRemaining -= Time.deltaTime;
+                dashScalar = additionalDashSpeed;
+                dashParticles.gameObject.SetActive(true);
+            }
+            else
+            {
+                dashTimeRemaining = 0;
+                dashScalar = 0;
+                dashParticles.gameObject.SetActive(false);
+                dashing = false;
+            }
+            
         }
         
         if (isGliding)
@@ -295,6 +310,17 @@ public class PlayerMovement : MonoBehaviour
         {
             GlideCounter = 0;
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (dashTimeRemaining > 0)
+            {
+                dashing = true;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            dashing = false;
+        }
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
@@ -362,16 +388,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDashPerformed(InputAction.CallbackContext value)
     {
-        if (dashTimeRemaining > 0)
-        {
-            dashing = true;
-        }
+        
 
     }
     private void OnDashCancelled(InputAction.CallbackContext value)
     {
-        dashing = false;
-
+        
     }
 
     private void RechargeDash()
