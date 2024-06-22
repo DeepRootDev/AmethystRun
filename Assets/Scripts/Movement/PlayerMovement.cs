@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
                 ModelAnimator.SetBool("Gliding", true);
                 if (moveVector.y != 0)
                 {
-                    rb.AddForce((moveSpeed / 2) * transform.forward, ForceMode.Acceleration);
+                    rb.AddForce((dashScalar + moveSpeed / 2) * transform.forward, ForceMode.Acceleration);
                 }
             }
             else
@@ -206,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
                 ModelAnimator.SetBool("Gliding", false);
             }
             
-            rb.AddForce((moveSpeed/2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            rb.AddForce((dashScalar + moveSpeed /2) * transform.right * moveVector.x, ForceMode.Acceleration);
             rb.AddForce((-Physics.gravity.y/2) * Vector3.down, ForceMode.Acceleration);
             
             airDrag = 10f;
