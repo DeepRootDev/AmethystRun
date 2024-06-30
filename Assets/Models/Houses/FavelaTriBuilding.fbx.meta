@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FavelaTriBuilding_House
-    second: {fileID: 2100000, guid: 10a5ffc26f6138645a332793b159b5a0, type: 2}
+    second: {fileID: 2100000, guid: c7c5130d4c3887c439494c44f15844b9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
