@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "app.rive.rive-unity": "file:C:/Users/Owner/Desktop/Deep Rooted Games/AmethstRun/rive-unity-0.1.106/rive-unity-0.1.106/package",
+    "com.unity.ai.navigation": "1.1.5",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.ide.vscode": "1.2.5",

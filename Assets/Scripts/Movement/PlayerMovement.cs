@@ -156,8 +156,9 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 2f * Time.deltaTime);
         }
+        
         if (!dashing)
         {
             RechargeDash();
@@ -218,7 +219,8 @@ public class PlayerMovement : MonoBehaviour
                 if (floorSensor.IsGroundDetected())
                 {
                     
-                    rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                    if(moveDirection.magnitude > 0)
+                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection.normalized) , ForceMode.Acceleration);
                 }
                 else
                 {
@@ -235,17 +237,18 @@ public class PlayerMovement : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
                 transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
                 
-                rb.AddForce((20) * transform.forward, ForceMode.Acceleration);
+                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
             }
             
             airDrag = 1f;
 
-            if (floorSensor.IsGroundDetected())
+            if (floorSensor.IsGroundDetected() || OnWall)
             {
-                ModelAnimator.SetBool("Air",false);
+                if(!OnWall)
+                    ModelAnimator.SetBool("Air",false);
                 //If we're on the ground, on the previous frame, were we already grounded?
                 //No? don't do anything to the jumpCount.
-                if (!onGround)
+                if (!onGround || OnWall)
                 {
                     jumpCount = 0;
                 }
@@ -325,7 +328,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        moveVector = Vector2.Lerp(moveVector, value.ReadValue<Vector2>(), 1);
+        moveVector = value.ReadValue<Vector2>();
+        //moveVector = Vector2.Lerp(moveVector, value.ReadValue<Vector2>(), 1);
         //moveVector.x /= 2;        
     }
     
@@ -344,9 +348,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 additionalJumpForce = coyoteJumpForce;
             }
-
-            rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-            rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
+            if (!OnWall)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+                rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
+            }
+            else
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+                rb.AddForce(transform.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
+            }
             ModelAnimator.SetTrigger("Jump");
         }
 
