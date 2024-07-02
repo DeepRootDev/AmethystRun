@@ -46,12 +46,16 @@ public class Brain : MonoBehaviour
        
         if (NextWaypoint.Fly)
         {
+            OnGround = false;
             rb.useGravity = false;
             agent.enabled = false;
             Gliding = true;
         }
         else if (NextWaypoint.Jump)
         {
+            OnGround = false;
+            print(agent.velocity);
+            rb.velocity = agent.velocity + (Vector3.up * 2);
             agent.enabled = false;
             rb.useGravity = true;
             Gliding = false;
@@ -61,10 +65,11 @@ public class Brain : MonoBehaviour
         }
         else
         {
-            rb.useGravity = true;
+            
             Gliding = false;
-            agent.enabled = true;
-            agent.SetDestination(NextWaypoint.transform.position);
+            OnGround = true;
+            //agent.enabled = true;
+            
         }
         
         Reached = false;
@@ -72,7 +77,7 @@ public class Brain : MonoBehaviour
     public void DistanceToWaypoint()
     {
         float distance = Vector3.Distance(transform.position,NextWaypoint.transform.position);
-        if (distance <= 3 && !Reached)
+        if (distance <= 5 && !Reached)
         {
             Reached = true;
             SetNewWaypoint();
@@ -102,9 +107,6 @@ public class Brain : MonoBehaviour
             ModelAnimator.SetBool("Air", true);
         }
         DistanceToWaypoint();
-        
-        
-        
     }
     private void FixedUpdate()
     {
@@ -112,8 +114,8 @@ public class Brain : MonoBehaviour
         {
             if (detectGround.IsGroundDetected())
             {
-                rb.AddForce(transform.up * 20f, ForceMode.Acceleration);
-                rb.AddForce(transform.forward * 10f, ForceMode.Acceleration);
+                //+rb.AddForce(transform.up * 5f, ForceMode.Acceleration);
+                //rb.AddForce(transform.forward * 10f, ForceMode.Acceleration);
                 if (Jumped)
                 {
                     SetNewWaypoint();
@@ -125,7 +127,22 @@ public class Brain : MonoBehaviour
         {
             Quaternion lookD = Quaternion.LookRotation(-transform.position, Vector3.up);
             transform.position = Vector3.MoveTowards(transform.position, NextWaypoint.transform.position, 11 * Time.deltaTime);
-            transform.rotation = lookD;
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookD, 5 * Time.deltaTime);
+        }
+        
+        if (OnGround)
+        {
+            if (!detectGround.IsGroundDetected())
+            {
+                agent.enabled = false;
+                rb.useGravity = true;
+                rb.velocity = (transform.forward* 10f)+Physics.gravity;
+            }
+            else
+            {
+                agent.enabled = true;
+                agent.SetDestination(NextWaypoint.transform.position);
+            }
         }
     }
 }

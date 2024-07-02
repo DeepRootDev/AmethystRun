@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
                 ModelAnimator.SetBool("Gliding", true);
                 if (moveVector.y != 0)
                 {
-                    rb.AddForce((dashScalar + moveSpeed / 2) * transform.forward, ForceMode.Acceleration);
+                    rb.AddForce((dashScalar + moveSpeed-2f) * transform.forward, ForceMode.Acceleration);
                 }
             }
             else
