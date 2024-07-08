@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191253, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: pushForce
-      value: 90
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 7336264284985191254, guid: 6396cbf7a54aa514f867ed9770847282, type: 3}
       propertyPath: m_RootOrder
