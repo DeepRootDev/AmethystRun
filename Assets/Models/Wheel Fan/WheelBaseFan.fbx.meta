@@ -3,7 +3,17 @@ guid: 13cec0d48357bab49825ccbc5d632802
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WheelFan_CenterB
+    second: {fileID: 2100000, guid: 2ad792011f761d641ae7ca319c8e99ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WheelFan_MetalBlade
+    second: {fileID: 2100000, guid: 5e4c8edad4dcccc48b26df8c2a15b099, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

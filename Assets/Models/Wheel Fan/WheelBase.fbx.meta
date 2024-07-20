@@ -3,7 +3,22 @@ guid: aada6c256e0bca540bd7fe84670aaf8e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SewerWheel_Column
+    second: {fileID: 2100000, guid: 23d8c1c3cab2d294f998c73412879de2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SewerWheel_WheelHolder
+    second: {fileID: 2100000, guid: f8d748b9334063041bbd904c5d44ff30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WheelFan_Pipping
+    second: {fileID: 2100000, guid: 0d0b985845a27cf42a53a15f0fd707c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
