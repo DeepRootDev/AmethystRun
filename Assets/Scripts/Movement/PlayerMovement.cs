@@ -76,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
     private bool apexReached;
     [SerializeField]
     Animator ModelAnimator;
+
+    [SerializeField]
+    GameObject ShockwavePrefab;
+
+
     private void Awake()
     {
         input = new PlayerInput();
@@ -180,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
                 dashScalar = 0;
                 dashParticles.gameObject.SetActive(false);
                 dashing = false;
+                FindObjectOfType<AudioManager>().Stop("Wind");
             }
             
         }
@@ -318,11 +324,14 @@ public class PlayerMovement : MonoBehaviour
             if (dashTimeRemaining > 0)
             {
                 dashing = true;
+                Instantiate(ShockwavePrefab,transform.position,Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("Wind");
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             dashing = false;
+            FindObjectOfType<AudioManager>().Stop("Wind");
         }
     }
 
