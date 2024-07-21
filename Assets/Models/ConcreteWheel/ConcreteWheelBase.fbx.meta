@@ -3,7 +3,22 @@ guid: f0a3f8574ae1dab438f3578f34f4c5dd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteWheel_Base
+    second: {fileID: 2100000, guid: 8e1a2ad1f75f93a4a9d9115609c0c2ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteWheel_MetalBase
+    second: {fileID: 2100000, guid: 708f210539d1cf94f9744344e34b45fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteWheel_MetalHolder
+    second: {fileID: 2100000, guid: 4e196f22636d78743a4ed60bc7408569, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +52,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

@@ -3,7 +3,32 @@ guid: e57c2e9225d51ad44ba8477673dce123
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magnet_Column
+    second: {fileID: 2100000, guid: 69d4efc3807e43e4d95ffcab167ff1f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magnet_Magnet
+    second: {fileID: 2100000, guid: ece0d72ff206b8e46adbcc6d1c2b4d5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magnet_MagnetBase
+    second: {fileID: 2100000, guid: ccb2d897417faf54aa702e5c5cf7bbef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magnet_MagnetPole
+    second: {fileID: 2100000, guid: 846affb1e1dcb2d4a964701f0f7cfbbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magnet_PoleBase
+    second: {fileID: 2100000, guid: 79ff65a5484dadd429c691fc1e1f323c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

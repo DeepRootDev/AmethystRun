@@ -3,7 +3,52 @@ guid: 5b59ae17db5ebea40bdbb9eb87510d5e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_Base
+    second: {fileID: 2100000, guid: 602bc8e2a51247142892b640004d5cf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_Handle
+    second: {fileID: 2100000, guid: 8c08bd6c3b5196241a612c27a5c69bdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_InnerPipes
+    second: {fileID: 2100000, guid: 1e6f83e2781007c4d9f6758c51b2f23b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_Magnet
+    second: {fileID: 2100000, guid: ca8a33e345a19d348adeb02a5d64f9ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_MagnetTop
+    second: {fileID: 2100000, guid: 0a7868239ccb963498d25f062b875e42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_Poles
+    second: {fileID: 2100000, guid: bb3d679266cc9e240996e12af18dd5f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_PulleyRotar
+    second: {fileID: 2100000, guid: 111aaf8e7a981724c90c141fa74f7437, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_PulleyTop
+    second: {fileID: 2100000, guid: 8337cada52cf440469181e4c9bcd0f30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane_Wire
+    second: {fileID: 2100000, guid: c357c2caacb94e1468aee10fda466d98, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +82,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
