@@ -1,9 +1,69 @@
 fileFormatVersion: 2
-guid: 47540222e369a364fb90cfe9b150c6aa
+guid: 8993e458894af344f8614b24e9fa66a9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_BackDoor
+    second: {fileID: 2100000, guid: dd7ccbeb9dab4024ba234283eaed74e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_Bolt
+    second: {fileID: 2100000, guid: 0cd2697f6af5cd441b5d660768d78dd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_CornerPiece
+    second: {fileID: 2100000, guid: 1feb54ac2c6c2064b89077d5b43288ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_DoorSeal
+    second: {fileID: 2100000, guid: ca1ff0382d2216e4d98722f54e7c00ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_Doors
+    second: {fileID: 2100000, guid: 8b2516aa512766245b41f51667dde9e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_FrontEdges
+    second: {fileID: 2100000, guid: 77d2d886eb1b56546b42c800c1d03e8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_Latch
+    second: {fileID: 2100000, guid: dafb0e82fe250b64c9d3e7d56fc653b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_LatchMiddle
+    second: {fileID: 2100000, guid: a3e4542b92e74b84abe5433bbeefcbbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_Pole
+    second: {fileID: 2100000, guid: 2bc9f23e09a5fbd4b8e285e0c3704146, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_SideEdges
+    second: {fileID: 2100000, guid: fc5a2f65caff0e0468c2bd281464f6e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_Sides
+    second: {fileID: 2100000, guid: 7ed718aac66cf7c4198f60f797aab7aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CargoCTN_TopBottom
+    second: {fileID: 2100000, guid: 301f75725e6f0384bab3cff1a523e9bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +97,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
