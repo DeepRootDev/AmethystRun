@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOne: {fileID: 3536269873297560506}
   pointTwo: {fileID: 3077552995131230148}
-  isOpen: 1
+  isOpen: 0
   timeToMove: 1
 --- !u!4 &1741713382488623896 stripped
 Transform:
