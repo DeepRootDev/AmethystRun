@@ -15,7 +15,7 @@ ModelImporter:
       name: MetalBeam
     second: {fileID: 2100000, guid: de0e8e0fb125fbc4c8d87c5c948592cc, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

@@ -50,7 +50,7 @@ ModelImporter:
       name: Crane_Wire
     second: {fileID: 2100000, guid: c357c2caacb94e1468aee10fda466d98, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

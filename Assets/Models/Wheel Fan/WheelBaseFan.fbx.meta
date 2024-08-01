@@ -15,7 +15,7 @@ ModelImporter:
       name: WheelFan_MetalBlade
     second: {fileID: 2100000, guid: 5e4c8edad4dcccc48b26df8c2a15b099, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

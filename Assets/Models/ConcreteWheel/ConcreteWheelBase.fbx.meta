@@ -20,7 +20,7 @@ ModelImporter:
       name: ConcreteWheel_MetalHolder
     second: {fileID: 2100000, guid: 4e196f22636d78743a4ed60bc7408569, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

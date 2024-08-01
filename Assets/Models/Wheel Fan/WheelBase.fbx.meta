@@ -20,7 +20,7 @@ ModelImporter:
       name: WheelFan_Pipping
     second: {fileID: 2100000, guid: 0d0b985845a27cf42a53a15f0fd707c2, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

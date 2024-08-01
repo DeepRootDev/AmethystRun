@@ -20,7 +20,7 @@ ModelImporter:
       name: PalmTree_TreeTrunk
     second: {fileID: 2100000, guid: 1ae8e01f60bd60846966170e05d4d603, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -55,6 +55,7 @@ ModelImporter:
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

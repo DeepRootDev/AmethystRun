@@ -65,7 +65,7 @@ ModelImporter:
       name: CargoCTN_TopBottom
     second: {fileID: 2100000, guid: 301f75725e6f0384bab3cff1a523e9bd, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

@@ -30,7 +30,7 @@ ModelImporter:
       name: Magnet_PoleBase
     second: {fileID: 2100000, guid: 79ff65a5484dadd429c691fc1e1f323c, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
