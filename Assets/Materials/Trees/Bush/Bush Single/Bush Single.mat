@@ -25,6 +25,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _SURFACE_TYPE_TRANSPARENT
@@ -112,7 +113,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
+    - _AlphaClip: 1
     - _AlphaToMask: 0
     - _AoIntensity: 1
     - _Blend: 0
@@ -126,7 +127,7 @@ Material:
     - _ContrastDetailMap: 0
     - _ContrastTransparentMap: 0
     - _Cull: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0.79
     - _DetailAlbedoMapScale: 1
     - _DetailBrightness: 1
     - _DetailGlossiness: 0.5
