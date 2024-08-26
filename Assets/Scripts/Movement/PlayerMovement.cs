@@ -333,10 +333,10 @@ public class PlayerMovement : MonoBehaviour
             dashing = false;
             FindObjectOfType<AudioManager>().Stop("Wind");
         }
-        if (Input.GetKeyDown(KeyCode.G) && onGround)
+        if (Input.GetKeyDown(KeyCode.C) && onGround)
         {
             ModelAnimator.SetTrigger("Barge");
-            Collider[] c = Physics.OverlapSphere(transform.position, 2f);
+            Collider[] c = Physics.OverlapSphere(transform.position, 1f);
             foreach (Collider col in c)
             {
                 if (col.CompareTag("Player")&& col.gameObject != this.gameObject)
