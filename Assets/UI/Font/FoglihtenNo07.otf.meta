@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fab2f6ce587bb7c498ea625a322a9610
+guid: 03926a4904dcc394085b00c6eff1e5e5
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,10 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - FoglihtenPCS
+  - FoglihtenNo07
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
