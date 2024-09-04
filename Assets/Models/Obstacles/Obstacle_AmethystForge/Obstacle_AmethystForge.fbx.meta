@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Amethyst_Gem
-    second: {fileID: 2100000, guid: 459479193c5559644b0e48560888704a, type: 2}
+    second: {fileID: 2100000, guid: 58cfbc93e87e5a345a07d44da9df10d2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
