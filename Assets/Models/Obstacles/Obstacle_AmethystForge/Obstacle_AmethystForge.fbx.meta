@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Amethyst_Gem
-    second: {fileID: 2100000, guid: 1ab44c07e46374a40a6653765860598e, type: 2}
+    second: {fileID: 2100000, guid: 58cfbc93e87e5a345a07d44da9df10d2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ForgeObstcle_GlowGem
-    second: {fileID: 2100000, guid: edc631a370c20ff4e8a23ac23e8ba9d6, type: 2}
+    second: {fileID: 2100000, guid: 97fe9f970cf55f14880a2250998abc02, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -55,6 +55,7 @@ ModelImporter:
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
