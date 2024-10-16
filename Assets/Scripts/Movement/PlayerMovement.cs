@@ -1,4 +1,5 @@
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Recorder.OutputPath;
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private float countRechargeDelay = 2.0f;
 
     public  bool dashing = false;
-    public bool OnWall;
+    public bool OnWall,Drifting;
     public Transform WallTransform;
     private bool recharging = false;
     [SerializeField]
@@ -79,8 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameObject ShockwavePrefab;
-
-
+    [SerializeField]
+    float DriftDir,RotationY,drftVal;
+    
     private void Awake()
     {
         input = new PlayerInput();
@@ -148,7 +150,98 @@ public class PlayerMovement : MonoBehaviour
         }
         return 0f;
     }
+    public void MoveLogic()
+    {
+        if (isGliding)
+        {
+            float Roty = 0;
+            if (moveVector.y < 0)
+            {
+                Roty = moveVector.y;
+            }
+            Quaternion rot = Quaternion.Euler(Roty * 40f, Camera.main.transform.localEulerAngles.y, -moveVector.x * 40f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
+            //rb.velocity = Vector3.zero;
+            if (moveVector.magnitude > 0)
+            {
+                ModelAnimator.SetBool("Gliding", true);
+                if (moveVector.y != 0)
+                {
+                    rb.AddForce((dashScalar + moveSpeed - 2f) * transform.forward, ForceMode.Acceleration);
+                }
+            }
+            else
+            {
+                ModelAnimator.SetBool("Gliding", false);
+            }
 
+            rb.AddForce((dashScalar + moveSpeed / 2) * transform.right * moveVector.x, ForceMode.Acceleration);
+            rb.AddForce((-Physics.gravity.y / 2) * Vector3.down, ForceMode.Acceleration);
+
+            airDrag = 10f;
+        }
+        else
+        {
+            if (!OnWall)
+            {
+                if (floorSensor.IsGroundDetected())
+                {
+
+                    if (moveDirection.magnitude > 0)
+                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection.normalized), ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                }
+            }
+            else
+            {
+                Vector3 direction = transform.forward;
+                direction.y = 0;
+                Quaternion LookRot = Quaternion.LookRotation(wallRunDirection);
+                Quaternion LookRight = Quaternion.Euler(0, transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x) * 40f);
+                //Quaternion newRot = LookRight * LookRot;
+                transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
+
+                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
+            }
+
+            airDrag = 1f;
+
+            if (floorSensor.IsGroundDetected() || OnWall)
+            {
+                if (!OnWall)
+                    ModelAnimator.SetBool("Air", false);
+                //If we're on the ground, on the previous frame, were we already grounded?
+                //No? don't do anything to the jumpCount.
+                if (!onGround || OnWall)
+                {
+                    jumpCount = 0;
+                }
+                onGround = true;
+                rb.drag = groundDrag;
+                falling = false;
+            }
+            else
+            {
+                ModelAnimator.SetBool("Air", true);
+                rb.drag = airDrag;
+                onGround = false;
+
+                if (rb.velocity.y < 0 && !OnWall)
+                {
+                    rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
+                }
+                else
+                {
+                    if (!OnWall)
+                        rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
+                }
+            }
+        }
+    }
     private void FixedUpdate()
     {
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
@@ -158,12 +251,40 @@ public class PlayerMovement : MonoBehaviour
         ModelAnimator.SetBool("GlideStarter", isGliding);
         ModelAnimator.SetBool("WallRun", OnWall);
         ModelAnimator.SetBool("Dash", dashing);
-        if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
+        ModelAnimator.SetBool("Drift", Drifting);
+        if (moveDirection.magnitude != 0 && !isGliding && !OnWall && !Drifting)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 2f * Time.deltaTime);
         }
-        
+        if (!Drifting && Input.GetKey(KeyCode.LeftControl))
+        {
+            Drifting = true;
+            DriftDir = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+            RotationY = transform.localRotation.y;
+        }
+        if (Drifting)
+        {
+            float control = (DriftDir == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 0, 2) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 2, 0);
+            //DriftDir = Mathf.Clamp(DriftDir,minDriftDir,MaxDriftDir);
+            //rb.AddForce((moveSpeed + dashScalar) * (transform.forward), ForceMode.Acceleration);
+  
+            rb.AddForce((moveSpeed + dashScalar) * (ModelAnimator.transform.forward), ForceMode.Acceleration);
+            drftVal = RotationY + (DriftDir * control) * 45;
+            
+            Quaternion rot = Quaternion.AngleAxis(drftVal, Vector3.up);
+            ModelAnimator.transform.localRotation = Quaternion.Lerp(ModelAnimator.transform.localRotation, ModelAnimator.transform.localRotation * rot, Time.deltaTime);
+            
+        }
+        else
+        {
+            ModelAnimator.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            MoveLogic();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Drifting = false;
+        }
         if (!dashing)
         {
             RechargeDash();
@@ -189,96 +310,8 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
-        
-        if (isGliding)
-        {
-            float Roty = 0;
-            if (moveVector.y < 0)
-            {
-                Roty = moveVector.y;
-            }
-            Quaternion rot = Quaternion.Euler(Roty* 40f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 40f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
-            //rb.velocity = Vector3.zero;
-            if (moveVector.magnitude > 0)
-            {
-                ModelAnimator.SetBool("Gliding", true);
-                if (moveVector.y != 0)
-                {
-                    rb.AddForce((dashScalar + moveSpeed-2f) * transform.forward, ForceMode.Acceleration);
-                }
-            }
-            else
-            {
-                ModelAnimator.SetBool("Gliding", false);
-            }
-            
-            rb.AddForce((dashScalar + moveSpeed /2) * transform.right * moveVector.x, ForceMode.Acceleration);
-            rb.AddForce((-Physics.gravity.y/2) * Vector3.down, ForceMode.Acceleration);
-            
-            airDrag = 10f;
-        }
-        else
-        {
-            if (!OnWall)
-            {
-                if (floorSensor.IsGroundDetected())
-                {
-                    
-                    if(moveDirection.magnitude > 0)
-                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection.normalized) , ForceMode.Acceleration);
-                }
-                else
-                {
-                    rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
-                }
-            }
-            else
-            {
-                Vector3 direction = transform.forward;
-                direction.y = 0;
-                Quaternion LookRot = Quaternion.LookRotation(wallRunDirection);
-                Quaternion LookRight = Quaternion.Euler(0,transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x)*40f);
-                //Quaternion newRot = LookRight * LookRot;
-                transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
-                transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
-                
-                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
-            }
-            
-            airDrag = 1f;
 
-            if (floorSensor.IsGroundDetected() || OnWall)
-            {
-                if(!OnWall)
-                    ModelAnimator.SetBool("Air",false);
-                //If we're on the ground, on the previous frame, were we already grounded?
-                //No? don't do anything to the jumpCount.
-                if (!onGround || OnWall)
-                {
-                    jumpCount = 0;
-                }
-                onGround = true;
-                rb.drag = groundDrag;
-                falling = false;
-            }
-            else
-            {
-                ModelAnimator.SetBool("Air", true);
-                rb.drag = airDrag;
-                onGround = false;
 
-                if (rb.velocity.y < 0 && !OnWall)
-                {
-                    rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
-                }
-                else
-                {
-                    if(!OnWall)
-                        rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
-                }
-            }
-        }
         
         
     }

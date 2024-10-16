@@ -54,7 +54,7 @@ public class Brain : MonoBehaviour
         else if (NextWaypoint.Jump)
         {
             OnGround = false;
-            print(agent.velocity);
+
             rb.velocity = agent.velocity + (Vector3.up * 2);
             agent.enabled = false;
             rb.useGravity = true;
