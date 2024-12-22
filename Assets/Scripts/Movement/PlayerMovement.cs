@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb = null;
     private Vector3 moveDirection,wallRunDirection;
     [SerializeField]
-    bool isGliding,isGlidingFinished;
+    public bool isGliding,isGlidingFinished;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -72,10 +72,10 @@ public class PlayerMovement : MonoBehaviour
     float GlideDelay,GlideCounter;
     public float GetDashTimeLeft() { return dashTimeRemaining; }
     public bool GetRecharging() { return recharging; }
-    private bool falling = false;
+    public bool falling = false;
     private bool apexReached;
     [SerializeField]
-    Animator ModelAnimator;
+    public Animator ModelAnimator;
 
     [SerializeField]
     GameObject ShockwavePrefab;
@@ -154,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
         //Look();
         moveDirection = CalculateForward(dir);
+       
         ModelAnimator.SetFloat("Forward", moveDirection.magnitude);
         ModelAnimator.SetBool("GlideStarter", isGliding);
         ModelAnimator.SetBool("WallRun", OnWall);
@@ -161,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 2f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
         }
         
         if (!dashing)
@@ -226,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     
                     if(moveDirection.magnitude > 0)
-                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection.normalized) , ForceMode.Acceleration);
+                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection) , ForceMode.Force);
                 }
                 else
                 {
