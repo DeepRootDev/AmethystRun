@@ -41,6 +41,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8943839232567480009}
     m_Modifications:
+    - target: {fileID: -8738325881338288844, guid: 41b94d8fbd9b20746961fba826eb94c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41b94d8fbd9b20746961fba826eb94c3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2331909
@@ -96,6 +100,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 41b94d8fbd9b20746961fba826eb94c3, type: 3}
       propertyPath: m_Name
       value: Amethyst_Gem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 41b94d8fbd9b20746961fba826eb94c3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729843459034719402, guid: 41b94d8fbd9b20746961fba826eb94c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -158,6 +170,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b788ccecc2fc895439d4438f47916e32, type: 3}
       propertyPath: m_Name
       value: AmethystPipe_Obstcle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: b788ccecc2fc895439d4438f47916e32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137855683165910047, guid: b788ccecc2fc895439d4438f47916e32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485755908730029713, guid: b788ccecc2fc895439d4438f47916e32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

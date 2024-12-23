@@ -87,6 +87,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WheelBase
       objectReference: {fileID: 0}
+    - target: {fileID: 3313379911488621875, guid: aada6c256e0bca540bd7fe84670aaf8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832495034676218966, guid: aada6c256e0bca540bd7fe84670aaf8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: aada6c256e0bca540bd7fe84670aaf8e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145,9 +157,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3352438035426065827, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
       propertyPath: m_Name
       value: WheelBaseFan (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236896745865733273, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -268,9 +292,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bca4f34258a3f3440befd820ccc777d2, type: 2}
+    - target: {fileID: -3352438035426065827, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
       propertyPath: m_Name
       value: WheelBaseFan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236896745865733273, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -383,9 +419,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3352438035426065827, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
       propertyPath: m_Name
       value: WheelBaseFan (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236896745865733273, guid: 13cec0d48357bab49825ccbc5d632802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -40,6 +40,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5738499438186332305}
     m_Modifications:
+    - target: {fileID: -8866873481799007463, guid: c2565a4b17e306241a8ed524dd665e71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565a4b17e306241a8ed524dd665e71, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -87,6 +91,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2565a4b17e306241a8ed524dd665e71, type: 3}
       propertyPath: m_Name
       value: FavelaHangingBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c2565a4b17e306241a8ed524dd665e71, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233732560343430499, guid: c2565a4b17e306241a8ed524dd665e71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

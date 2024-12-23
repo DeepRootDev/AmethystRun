@@ -145,9 +145,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7740357012590438885, guid: e57c2e9225d51ad44ba8477673dce123, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5254909470281722109, guid: e57c2e9225d51ad44ba8477673dce123, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e57c2e9225d51ad44ba8477673dce123, type: 3}
       propertyPath: m_Name
       value: Magnet_Cargo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e57c2e9225d51ad44ba8477673dce123, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -207,6 +219,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5463053860626760312, guid: 8993e458894af344f8614b24e9fa66a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3618174441992088785, guid: 8993e458894af344f8614b24e9fa66a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8993e458894af344f8614b24e9fa66a9, type: 3}
       propertyPath: m_Name
       value: CargoContainer_GroupedV2
@@ -214,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8993e458894af344f8614b24e9fa66a9, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 8993e458894af344f8614b24e9fa66a9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

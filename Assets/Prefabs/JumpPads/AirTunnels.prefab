@@ -363,6 +363,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6359407641567149118, guid: 6d82a3f22352d8f40a42f6875396c7ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -430378998633822304, guid: 6d82a3f22352d8f40a42f6875396c7ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d82a3f22352d8f40a42f6875396c7ff, type: 3}
       propertyPath: m_Name
       value: AirTunnel_Portal
@@ -374,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6d82a3f22352d8f40a42f6875396c7ff, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 6d82a3f22352d8f40a42f6875396c7ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

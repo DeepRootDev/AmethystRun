@@ -211,9 +211,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[5]
       value: 
       objectReference: {fileID: 2100000, guid: 96ba2793a01c5b34c9af1831ff0d42a3, type: 2}
+    - target: {fileID: -7179093000416602341, guid: d1ccf990576024e4d84580b62260ab9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1ccf990576024e4d84580b62260ab9d, type: 3}
       propertyPath: m_Name
       value: TheVoiceBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: d1ccf990576024e4d84580b62260ab9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735742843478070902, guid: d1ccf990576024e4d84580b62260ab9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -469,6 +469,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7326368954225520463, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2420367017408470937, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
       propertyPath: m_Name
       value: Amethyst_SideWall
@@ -476,6 +484,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 33ac52b6e5162484d8c31b72e2e29643, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

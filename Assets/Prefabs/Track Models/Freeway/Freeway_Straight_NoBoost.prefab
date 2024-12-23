@@ -1853,6 +1853,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (3)
@@ -1860,6 +1864,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1923,6 +1935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (4)
@@ -1930,6 +1946,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1993,6 +2017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole
@@ -2000,6 +2028,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2063,6 +2099,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7554758692776404809, guid: 207cd8ee73f02b24ba6e902ca04e83ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4732922808697604456, guid: 207cd8ee73f02b24ba6e902ca04e83ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 207cd8ee73f02b24ba6e902ca04e83ef, type: 3}
       propertyPath: m_Name
       value: FreewayTracks
@@ -2074,6 +2118,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 207cd8ee73f02b24ba6e902ca04e83ef, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 207cd8ee73f02b24ba6e902ca04e83ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2155,6 +2203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (2)
@@ -2162,6 +2214,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2225,6 +2285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (5)
@@ -2232,6 +2296,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2295,6 +2367,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (1)
@@ -2302,6 +2378,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

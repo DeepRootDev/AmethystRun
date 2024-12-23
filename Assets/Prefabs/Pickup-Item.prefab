@@ -223,6 +223,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp_Shelly
       objectReference: {fileID: 0}
+    - target: {fileID: 4134748809198891401, guid: fe7402ab5bbfd5840ae7e807a1f313b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: fe7402ab5bbfd5840ae7e807a1f313b0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173732614564396563, guid: fe7402ab5bbfd5840ae7e807a1f313b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -108,9 +108,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -186,9 +198,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -264,9 +288,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -342,9 +378,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -420,9 +468,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -498,9 +558,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -576,9 +648,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -654,9 +738,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -732,9 +828,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -798,9 +906,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10a5ffc26f6138645a332793b159b5a0, type: 2}
+    - target: {fileID: -657543211005523335, guid: 821642bd654abab439d4902f0e0b19a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 821642bd654abab439d4902f0e0b19a7, type: 3}
       propertyPath: m_Name
       value: FavelaTriBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080757778447805087, guid: 821642bd654abab439d4902f0e0b19a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 821642bd654abab439d4902f0e0b19a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -876,9 +996,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -954,9 +1086,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -141522451642439859, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
       propertyPath: m_Name
       value: Fence_Planks (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880963242482013137, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e8aa8edb7ebcf7b418d10fc31607938d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1032,9 +1176,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6551119806759656807, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2645409177581625936, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
       propertyPath: m_Name
       value: Fence_TreeBirch (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c6f3399627d69294ca7f26308d7fe444, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

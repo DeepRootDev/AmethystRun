@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6164178821157916072, guid: 30cbf9579e301d841988c903cce82566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4716444109591623385, guid: 30cbf9579e301d841988c903cce82566, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -211,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 20bd43bf86073c442b26a79c3b62cc60, type: 2}
+    - target: {fileID: -852226572476435605, guid: 30cbf9579e301d841988c903cce82566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30cbf9579e301d841988c903cce82566, type: 3}
       propertyPath: m_Name
       value: Ancient_FlowerJumpPad
@@ -227,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2647173756464019226, guid: 30cbf9579e301d841988c903cce82566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4465304351888747560, guid: 30cbf9579e301d841988c903cce82566, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -235,9 +247,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: feb2332ef4057d240a97363d19a0ca69, type: 2}
+    - target: {fileID: 4742473837712756890, guid: 30cbf9579e301d841988c903cce82566, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5119002983135827112, guid: 30cbf9579e301d841988c903cce82566, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244478810341455438, guid: 30cbf9579e301d841988c903cce82566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

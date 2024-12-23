@@ -82,9 +82,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8071197839132285456, guid: f0a3f8574ae1dab438f3578f34f4c5dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7579753406307175517, guid: f0a3f8574ae1dab438f3578f34f4c5dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f0a3f8574ae1dab438f3578f34f4c5dd, type: 3}
       propertyPath: m_Name
       value: ConcreteWheelBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: f0a3f8574ae1dab438f3578f34f4c5dd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -230,6 +242,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4591320632258837029, guid: e13a4ac74d167c342a7ce8671b186e16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1600346084686383056, guid: e13a4ac74d167c342a7ce8671b186e16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e13a4ac74d167c342a7ce8671b186e16, type: 3}
       propertyPath: m_Name
       value: ConcreteWheel
@@ -237,6 +257,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e13a4ac74d167c342a7ce8671b186e16, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: e13a4ac74d167c342a7ce8671b186e16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

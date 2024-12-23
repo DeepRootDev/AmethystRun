@@ -624,8 +624,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5086628991492674773, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4453895823400046499, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2446361371228947605, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2310991177367117204, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1360052630715852940, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
@@ -668,6 +680,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Red
       objectReference: {fileID: 0}
+    - target: {fileID: 3923488883593504128, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7332996246283311327, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -675,32 +695,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 931733176295256409, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2449010773421443388}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
---- !u!1 &2686430959698406499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 931733176295256409, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}
-  m_PrefabInstance: {fileID: 3001139916108799290}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2449010773421443388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686430959698406499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee89b7c8f025b141abd1110d7ba054b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointOne: {fileID: 4192564760741728910}
-  pointTwo: {fileID: 4474358839937394731}
-  isOpen: 1
-  timeToMove: 1
 --- !u!4 &3327185575648459473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1611a95cbbd70f443801a22bd8810e2c, type: 3}

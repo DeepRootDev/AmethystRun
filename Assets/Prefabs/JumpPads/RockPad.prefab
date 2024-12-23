@@ -240,9 +240,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e1c40b93dd1b9d443a3351af0ac5b3ad, type: 2}
+    - target: {fileID: -7270463844561902948, guid: cd7b4970ef0a3bc4a8c45a9eb66103c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3782490666202433522, guid: cd7b4970ef0a3bc4a8c45a9eb66103c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd7b4970ef0a3bc4a8c45a9eb66103c1, type: 3}
       propertyPath: m_Name
       value: Ancient_BoldRock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: cd7b4970ef0a3bc4a8c45a9eb66103c1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

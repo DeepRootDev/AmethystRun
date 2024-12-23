@@ -203,6 +203,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoneLight
       objectReference: {fileID: 0}
+    - target: {fileID: 4630177532743954352, guid: a7f9a4fa514fe344d87e923fe87b4f32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: a7f9a4fa514fe344d87e923fe87b4f32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311980026658986954, guid: a7f9a4fa514fe344d87e923fe87b4f32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

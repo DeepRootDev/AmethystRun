@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678521003150595433}
   - component: {fileID: 8311393958797476765}
+  - component: {fileID: 5035664270773493119}
   m_Layer: 0
   m_Name: Pink Height
   m_TagString: Untagged
@@ -168,6 +169,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5035664270773493119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019818326286746608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7725631031701028217
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +384,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -421,6 +457,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -488,6 +536,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -549,6 +609,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -612,6 +684,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -674,6 +758,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -735,6 +831,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -802,6 +910,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -867,6 +987,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -934,6 +1066,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -992,9 +1136,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6141744470255786417, guid: 79eb3adb0af9ad749bbc89d56ac19fa2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79eb3adb0af9ad749bbc89d56ac19fa2, type: 3}
       propertyPath: m_Name
       value: SolarPanel_Track
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658990473245682364, guid: 79eb3adb0af9ad749bbc89d56ac19fa2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 79eb3adb0af9ad749bbc89d56ac19fa2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1062,6 +1218,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1123,6 +1291,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1186,6 +1366,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1248,6 +1440,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1309,6 +1513,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1376,6 +1592,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1438,6 +1666,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amethyst_LongSpike (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1499,6 +1739,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
       propertyPath: m_Name
       value: Amethyst_LongSpike
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588618452432055695, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614190355101042282, guid: bee7043f820784342a18ce2f2e797d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

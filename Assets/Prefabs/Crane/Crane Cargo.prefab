@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 302960443663306304, guid: 5b59ae17db5ebea40bdbb9eb87510d5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5b59ae17db5ebea40bdbb9eb87510d5e, type: 3}
       propertyPath: m_Name
       value: Crane_V2
@@ -201,6 +205,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5b59ae17db5ebea40bdbb9eb87510d5e, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 5b59ae17db5ebea40bdbb9eb87510d5e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7983302938083623104, guid: 5b59ae17db5ebea40bdbb9eb87510d5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -260,6 +272,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3189657311949750563, guid: 37b7406ae83fee6448853aa9fba1aa91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623484155638269251, guid: 37b7406ae83fee6448853aa9fba1aa91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 37b7406ae83fee6448853aa9fba1aa91, type: 3}
       propertyPath: m_Name
       value: CargoContainer_Grouped
@@ -267,6 +287,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 37b7406ae83fee6448853aa9fba1aa91, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 37b7406ae83fee6448853aa9fba1aa91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

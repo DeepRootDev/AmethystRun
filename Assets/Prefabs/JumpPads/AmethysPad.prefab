@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2282444307588914020, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
       propertyPath: m_Name
       value: Amethyst_JumpPadOfficial
@@ -272,9 +276,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057873969778061418, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7146350642004888609, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193931925585249615, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437060631655265913, guid: 61c1858b4338a35479c967aad507f1cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5209791122825023983}
   - component: {fileID: 5773662447048554746}
+  - component: {fileID: 2633652905732249007}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -170,6 +171,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2633652905732249007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060169338781423550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &4452928563370258863
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8734882913227050817}
   - component: {fileID: 1115076986496702037}
+  - component: {fileID: 7962009329502838494}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -264,6 +289,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7962009329502838494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452928563370258863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &4563493666525811170
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939906044397806133}
   - component: {fileID: 7525888768212653080}
+  - component: {fileID: 4033768541000322464}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -358,6 +407,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4033768541000322464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563493666525811170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &6925463453308640631
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4634126062728548629}
   - component: {fileID: 8381103619766272077}
+  - component: {fileID: 5325821438018338748}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -452,6 +525,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5325821438018338748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925463453308640631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7053582268223837066
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5359567317724703709}
   - component: {fileID: 3531912780120305628}
+  - component: {fileID: 5769600736670750088}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -546,6 +643,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5769600736670750088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7053582268223837066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7251419278548054306
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8189430507382373987}
   - component: {fileID: 4911604505823731776}
+  - component: {fileID: 6590767633548481440}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -640,6 +761,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &6590767633548481440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251419278548054306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &254036164578895718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.171
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (3)
@@ -699,6 +847,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -762,6 +918,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (4)
@@ -769,6 +929,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -832,6 +1000,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6154776927221444027, guid: 560596f390759be45aa22192df6b4d00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 63387246081397315, guid: 560596f390759be45aa22192df6b4d00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 560596f390759be45aa22192df6b4d00, type: 3}
       propertyPath: m_Name
       value: Freeway_JumpTrack
@@ -843,6 +1019,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 560596f390759be45aa22192df6b4d00, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 560596f390759be45aa22192df6b4d00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -906,6 +1086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole
@@ -913,6 +1097,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -976,6 +1168,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.241
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (2)
@@ -983,6 +1179,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1046,6 +1250,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (5)
@@ -1053,6 +1261,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1116,6 +1332,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2917243194689330331, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Name
       value: Freeway_StreetPole (1)
@@ -1123,6 +1343,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980854780851138689, guid: 3bcfb9d660f292c4d9d89574dbeacf9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

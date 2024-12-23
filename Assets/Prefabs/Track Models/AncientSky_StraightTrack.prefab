@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1013466476239416547, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Name
       value: AncientLightVine (1)
@@ -480,6 +484,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921516362721885464, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -543,6 +555,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4962771430551778223, guid: 02f1342d6de06c546a83bb3be25983ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1456425705282995417, guid: 02f1342d6de06c546a83bb3be25983ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02f1342d6de06c546a83bb3be25983ac, type: 3}
       propertyPath: m_Name
       value: AncientTrack_Straight
@@ -554,6 +574,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02f1342d6de06c546a83bb3be25983ac, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 02f1342d6de06c546a83bb3be25983ac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -629,6 +653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1013466476239416547, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Name
       value: AncientLightVine (2)
@@ -636,6 +664,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921516362721885464, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -699,6 +735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1013466476239416547, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Name
       value: AncientLightVine (3)
@@ -706,6 +746,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921516362721885464, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -769,6 +817,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1013466476239416547, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Name
       value: AncientLightVine
@@ -776,6 +828,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72b5c55f17dd279429904645e958db50, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921516362721885464, guid: 72b5c55f17dd279429904645e958db50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
