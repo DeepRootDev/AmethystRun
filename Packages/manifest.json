@@ -2,7 +2,6 @@
   "dependencies": {
     "app.rive.rive-unity": "file:C:/Users/Owner/Desktop/Deep Rooted Games/AmethstRun/rive-unity-0.1.106/rive-unity-0.1.106/package",
     "com.unity.ai.navigation": "1.1.5",
-    "com.unity.autolod": "https://github.com/Unity-Technologies/AutoLOD.git",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.ide.vscode": "1.2.5",
@@ -16,7 +15,6 @@
     "com.unity.timeline": "1.7.5",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.8.0",
-    "com.whinarn.unitymeshsimplifier": "https://github.com/Whinarn/UnityMeshSimplifier.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
