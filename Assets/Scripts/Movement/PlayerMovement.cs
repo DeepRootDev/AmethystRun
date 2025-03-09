@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput input = null;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody rb = null;
-    private Vector3 moveDirection,wallRunDirection;
+    private Vector3 moveDirection, wallRunDirection;
     [SerializeField]
-    public bool isGliding,isGlidingFinished;
+    public bool isGliding, isGlidingFinished;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -62,14 +62,14 @@ public class PlayerMovement : MonoBehaviour
 
     private float countRechargeDelay = 2.0f;
 
-    public  bool dashing = false;
+    public bool dashing = false;
     public bool OnWall;
     public Transform WallTransform;
     private bool recharging = false;
     [SerializeField]
     LayerMask GroundLayer;
     [SerializeField]
-    float GlideDelay,GlideCounter;
+    float GlideDelay, GlideCounter;
     public float GetDashTimeLeft() { return dashTimeRemaining; }
     public bool GetRecharging() { return recharging; }
     public bool falling = false;
@@ -79,7 +79,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameObject ShockwavePrefab;
-
+    
+    float Vertical,Horizontal;
 
     private void Awake()
     {
@@ -111,123 +112,86 @@ public class PlayerMovement : MonoBehaviour
         RotatedVector.y = currentY;
         return RotatedVector;
     }
-    private void OnEnable()
-    {
-        input.Enable();
 
-        //subscribe to events
-        input.Player.Movement.performed += OnMovementPerformed;
-        input.Player.Movement.canceled += OnMovementCancelled;
-        input.Player.Jump.performed += OnJumpPerformed;
-        input.Player.Jump.canceled += OnJumpCancelled;
-        input.Player.Dash.performed += OnDashPerformed;
-        input.Player.Dash.canceled += OnDashCancelled;
-
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
-
-        //unsubscribe from events
-        input.Player.Movement.performed -= OnMovementPerformed;
-        input.Player.Movement.canceled -= OnMovementCancelled;
-        input.Player.Jump.performed -= OnJumpPerformed;
-        input.Player.Jump.canceled -= OnJumpCancelled;
-        input.Player.Dash.performed -= OnDashPerformed;
-        input.Player.Dash.canceled -= OnDashCancelled;
-    }
 
     public float DistanceToGround()
     {
-        Ray r = new Ray(transform.position,Vector3.down);
+        Ray r = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-        if (Physics.Raycast(r,out hit, GroundLayer))
+        if (Physics.Raycast(r, out hit, GroundLayer))
         {
-            return hit.distance;    
+            return hit.distance;
         }
         return 0f;
     }
 
     private void FixedUpdate()
     {
-        Vector3 dir = new Vector3 (moveVector.x, 0, moveVector.y);
-        //Look();
+        Vector3 dir = new Vector3(moveVector.x, 0, moveVector.y);
         moveDirection = CalculateForward(dir);
-       
-        ModelAnimator.SetFloat("Forward", moveDirection.magnitude);
+
+        ModelAnimator.SetFloat("Forward", rb.velocity.magnitude);
         ModelAnimator.SetBool("GlideStarter", isGliding);
         ModelAnimator.SetBool("WallRun", OnWall);
         ModelAnimator.SetBool("Dash", dashing);
-        if (moveDirection.magnitude != 0 && !isGliding && !OnWall)
+        ModelAnimator.SetBool("Air",!floorSensor.IsGroundDetected());
+
+        // Smooth Movement Rotation
+        if (moveDirection.magnitude > 0 && !isGliding && !OnWall)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.fixedDeltaTime);
         }
-        
-        if (!dashing)
+
+        // Handle Dashing
+        if (dashing)
         {
-            RechargeDash();
-            dashScalar = 0;
-            dashParticles.gameObject.SetActive(false);
+            dashTimeRemaining -= Time.deltaTime;
+            dashScalar = Mathf.Lerp(dashScalar, 0, 0.1f);
+            dashParticles.gameObject.SetActive(true);
         }
         else
         {
-            
-            if (dashTimeRemaining > 0)
-            {
-                dashTimeRemaining -= Time.deltaTime;
-                dashScalar = additionalDashSpeed;
-                dashParticles.gameObject.SetActive(true);
-            }
-            else
-            {
-                dashTimeRemaining = 0;
-                dashScalar = 0;
-                dashParticles.gameObject.SetActive(false);
-                dashing = false;
-                FindObjectOfType<AudioManager>().Stop("Wind");
-            }
-            
+            dashScalar = 0;
+            dashParticles.gameObject.SetActive(false);
         }
-        
+
+        // Gliding Logic
         if (isGliding)
         {
-            float Roty = 0;
-            if (moveVector.y < 0)
-            {
-                Roty = moveVector.y;
-            }
-            Quaternion rot = Quaternion.Euler(Roty* 40f,Camera.main.transform.localEulerAngles.y,-moveVector.x * 40f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);
-            //rb.velocity = Vector3.zero;
+            Quaternion glideRotation = Quaternion.Euler(moveVector.y * 40f, Camera.main.transform.eulerAngles.y, -moveVector.x * 40f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, glideRotation, 10f * Time.fixedDeltaTime);
             if (moveVector.magnitude > 0)
             {
                 ModelAnimator.SetBool("Gliding", true);
-                if (moveVector.y != 0)
-                {
-                    rb.AddForce((dashScalar + moveSpeed-2f) * transform.forward, ForceMode.Acceleration);
-                }
+                rb.AddForce((moveSpeed + dashScalar - 2f) * transform.forward * Mathf.Abs(moveVector.y), ForceMode.Acceleration);
             }
             else
             {
                 ModelAnimator.SetBool("Gliding", false);
             }
-            
-            rb.AddForce((dashScalar + moveSpeed /2) * transform.right * moveVector.x, ForceMode.Acceleration);
-            rb.AddForce((-Physics.gravity.y/2) * Vector3.down, ForceMode.Acceleration);
-            
+            //rb.AddForce((airSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
+            rb.AddForce(moveSpeed / 2 * transform.right * moveVector.x, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * (-Physics.gravity.y * 0.5f), ForceMode.Acceleration);
+
             airDrag = 10f;
         }
         else
         {
+            
             if (!OnWall)
             {
                 if (floorSensor.IsGroundDetected())
                 {
-                    
-                    if(moveDirection.magnitude > 0)
-                        rb.AddForce((moveSpeed + dashScalar) * (moveDirection) , ForceMode.Force);
+                    if (moveDirection.magnitude > 0){
+                        if(dashing){
+                            rb.AddForce((moveSpeed + dashScalar + additionalDashSpeed) * moveDirection.normalized, ForceMode.Acceleration);
+                        }else{
+                            rb.AddForce((moveSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
+                        }
+                    }
+                    jumpCount = 0;
+
                 }
                 else
                 {
@@ -236,137 +200,117 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Vector3 direction = transform.forward;
-                direction.y = 0;
-                Quaternion LookRot = Quaternion.LookRotation(wallRunDirection);
-                Quaternion LookRight = Quaternion.Euler(0,transform.rotation.eulerAngles.y, ((WallTransform.position.x - transform.position.x) * transform.right.x)*40f);
-                //Quaternion newRot = LookRight * LookRot;
-                transform.rotation = Quaternion.Lerp(transform.rotation, LookRot, 5f * Time.deltaTime);
-                transform.rotation = Quaternion.Lerp(transform.rotation, LookRight, 5f * Time.deltaTime);
-                
-                rb.AddForce((moveSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
-            }
-            
-            airDrag = 1f;
+                Quaternion targetRotation = Quaternion.LookRotation(wallRunDirection);
+Quaternion wallTilt = Quaternion.Euler(0, 0, (WallTransform.position.x - transform.position.x) * transform.right.x * 40f);
+transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * wallTilt, 5f * Time.fixedDeltaTime);
 
-            if (floorSensor.IsGroundDetected() || OnWall)
-            {
-                if(!OnWall)
-                    ModelAnimator.SetBool("Air",false);
-                //If we're on the ground, on the previous frame, were we already grounded?
-                //No? don't do anything to the jumpCount.
-                if (!onGround || OnWall)
-                {
-                    jumpCount = 0;
-                }
-                onGround = true;
-                rb.drag = groundDrag;
-                falling = false;
-            }
-            else
-            {
-                ModelAnimator.SetBool("Air", true);
-                rb.drag = airDrag;
-                onGround = false;
+Vector3 wallRunForce = (moveSpeed + dashScalar) * wallRunDirection;
+rb.AddForce(wallRunForce, ForceMode.Acceleration);
 
-                if (rb.velocity.y < 0 && !OnWall)
-                {
-                    rb.AddForce(Vector3.down * -Physics.gravity.y * (gravityScale + fallingMagnitude), ForceMode.Acceleration);
-                }
-                else
-                {
-                    if(!OnWall)
-                        rb.AddForce(Vector3.down * -Physics.gravity.y * gravityScale, ForceMode.Acceleration);
-                }
             }
+
+            airDrag = 2f;
         }
-        
-        
     }
+
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !isGlidingFinished)
+        RechargeDash();
+        if (Input.GetMouseButton(0) && isGlidingFinished)
         {
+            print("Glider Equipped");
             isGliding = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
             isGlidingFinished = false;
-            isGliding = false;
-            ModelAnimator.SetBool("Gliding", false);
-        }
-        if (DistanceToGround() < 0.5f && isGliding){
-            //rb.AddForce(Vector3.up * (1), ForceMode.VelocityChange);
+            ModelAnimator.SetBool("Gliding", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
+        if (Input.GetMouseButtonUp(0))
         {
-            rb.AddForce(transform.right * moveVector.x * 20f, ForceMode.Impulse);
-           
+            isGliding = false;
+            isGlidingFinished = true;
+            ModelAnimator.SetBool("Gliding", false);
         }
+
+        // Cancel gliding if too close to ground
+        if (isGliding && DistanceToGround() < 0.5f)
+        {
+            isGliding = false;
+            isGlidingFinished = true;
+            ModelAnimator.SetBool("Gliding", false);
+        }
+
+        // Handle Glide Timer
         if (isGliding)
         {
-            
+            rb.useGravity  = false;
             GlideCounter += Time.deltaTime;
             if (GlideCounter >= GlideDelay)
             {
                 isGlidingFinished = true;
                 isGliding = false;
                 GlideCounter = 0;
+                ModelAnimator.SetBool("Gliding", false);
             }
         }
         else
         {
+            rb.useGravity = true;
             GlideCounter = 0;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        Vertical = Input.GetAxis("Vertical");
+        Horizontal =Input.GetAxis("Horizontal");
+        moveVector.x = Horizontal;
+        moveVector.y = Vertical;
+        // Apply Glide Boost (Left Control)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
         {
-            if (dashTimeRemaining > 0)
-            {
-                dashing = true;
-                Instantiate(ShockwavePrefab,transform.position,Quaternion.identity);
-                FindObjectOfType<AudioManager>().Play("Wind");
-            }
+            Vector3 glideBoost = transform.right * Mathf.Sign(moveVector.x) * 20f;
+            rb.AddForce(glideBoost, ForceMode.Impulse);
         }
+
+        // Handle Dash (Left Shift)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashTimeRemaining > 0)
+        {
+            dashing = true;
+            Instantiate(ShockwavePrefab, transform.position, Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("Wind");
+            dashTimeRemaining -= 1;  // Reduce dash time
+        }
+
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             dashing = false;
             FindObjectOfType<AudioManager>().Stop("Wind");
         }
-        if (Input.GetKeyDown(KeyCode.C) && onGround)
+
+        // Barge Attack (C Key)
+        if (Input.GetKeyDown(KeyCode.C) && floorSensor.IsGroundDetected())
         {
             ModelAnimator.SetTrigger("Barge");
+
             Collider[] c = Physics.OverlapSphere(transform.position, 1f);
             foreach (Collider col in c)
             {
-                if (col.CompareTag("Player")&& col.gameObject != this.gameObject)
+                if (col.CompareTag("Player") && col.gameObject != this.gameObject)
                 {
-                    col.GetComponent<PlayerMovement>().ModelAnimator.SetTrigger("Tripped");
+                    // Check if the player is in front
+                    Vector3 directionToPlayer = (col.transform.position - transform.position).normalized;
+                    float dotProduct = Vector3.Dot(transform.forward, directionToPlayer);
+
+                    if (dotProduct > 0) // Player is in front
+                    {
+                        col.GetComponent<PlayerMovement>().ModelAnimator.SetTrigger("Tripped");
+                    }
                 }
             }
         }
-    }
-
-    private void OnMovementPerformed(InputAction.CallbackContext value)
-    {
-        moveVector = value.ReadValue<Vector2>();
-        //moveVector = Vector2.Lerp(moveVector, value.ReadValue<Vector2>(), 1);
-        //moveVector.x /= 2;        
-    }
-    
-    private void OnMovementCancelled(InputAction.CallbackContext value)
-    {
-        moveVector = Vector2.zero;
-    }
-
-    private void OnJumpPerformed(InputAction.CallbackContext value)
-    {
-        if (jumpCount < numberOfJumpsAllowed && !isGliding)
+        if(Input.GetKeyDown(KeyCode.Space)){
+            if (jumpCount < numberOfJumpsAllowed && !isGliding)
         {
             jumpCount++;
             float additionalJumpForce = 0.0f;
-            if (floorSensor.GetComponent<DetectGround>().IsCoyoteEffect())
+            if (floorSensor.IsCoyoteEffect())
             {
                 additionalJumpForce = coyoteJumpForce;
             }
@@ -382,24 +326,34 @@ public class PlayerMovement : MonoBehaviour
             }
             ModelAnimator.SetTrigger("Jump");
         }
+        }
 
     }
+
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.contacts[0].normal != Vector3.up && collision.contacts[0].normal != Vector3.down && collision.collider.CompareTag("Wall"))
+        if (collision.collider.CompareTag("Wall"))
         {
-            wallRunDirection = collision.contacts[0].normal + transform.forward;
-            wallRunDirection.Normalize();
-            if (wallRunDirection.x < 0.01f || wallRunDirection.x > 0.05f)
+            Vector3 wallNormal = collision.contacts[0].normal;
+
+            // Ensure it's not the ground or ceiling
+            if (wallNormal != Vector3.up && wallNormal != Vector3.down)
             {
-                wallRunDirection.x = 0.0f;
-                ModelAnimator.SetTrigger("Wall");
-                WallTransform = collision.collider.transform;
-                OnWall = true;
-                //rb.isKinematic = true;
-                rb.useGravity = false;
+                float wallAngle = Vector3.Angle(Vector3.up, wallNormal);
+                if (wallAngle > 85f && wallAngle < 95f) // Ensuring it's a near-vertical wall
+                {
+                    // Get proper wall run direction
+                    wallRunDirection = Vector3.ProjectOnPlane(transform.forward, wallNormal);
+                    wallRunDirection.Normalize();
+
+                    // Activate wall running
+                    ModelAnimator.SetTrigger("Wall");
+                    WallTransform = collision.collider.transform;
+                    OnWall = true;
+                    rb.useGravity = false;
+                }
             }
-            
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -421,12 +375,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDashPerformed(InputAction.CallbackContext value)
     {
-        
+
 
     }
     private void OnDashCancelled(InputAction.CallbackContext value)
     {
-        
+
     }
 
     private void RechargeDash()
@@ -461,7 +415,7 @@ public class PlayerMovement : MonoBehaviour
         vc.m_Lens.FieldOfView = Mathf.Lerp(vc.m_Lens.FieldOfView, 55 + moveVector.y * 5 + moveVector.x * 4, 0.05f);
         CinemachineBasicMultiChannelPerlin pn = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        pn.m_AmplitudeGain = Mathf.Lerp(pn.m_AmplitudeGain, moveVector.y /2 + 1, 0.2f);
+        pn.m_AmplitudeGain = Mathf.Lerp(pn.m_AmplitudeGain, moveVector.y / 2 + 1, 0.2f);
 
         yRotation += moveVector.x * 4;
         Vector3 faceDirection = new Vector3(0, yRotation, 0);

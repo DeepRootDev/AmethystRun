@@ -13,6 +13,6 @@ public class DashSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dashSlider.value = player.GetDashTimeLeft();
+        //dashSlider.value = player.GetDashTimeLeft();
     }
 }
