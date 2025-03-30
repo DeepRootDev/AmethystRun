@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     Vector3 CalculateForward(Vector3 toBeCalculated)
     {
