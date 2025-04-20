@@ -1,316 +1,209 @@
 using System.Collections;
 using Cinemachine;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Recorder.OutputPath;
+using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerInput input = null;
-    private Vector2 moveVector = Vector2.zero;
-    private Rigidbody rb = null;
-    private Vector3 moveDirection, wallRunDirection;
-    [SerializeField]
-    public bool isGliding, isGlidingFinished;
+    private PlayerInput input;
+    private Rigidbody rb;
 
-    [SerializeField]
-    private float moveSpeed = 5.0f;
-    [SerializeField]
-    private float airSpeed = 0.5f;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float airSpeed = 0.5f;
+    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private float coyoteJumpForce = 10f;
+    [SerializeField] private float gravityScale = 1.0f;
+    [SerializeField] private float groundDrag = 5.0f;
+    [SerializeField] private float airDrag = 1.0f;
 
-    [SerializeField]
-    private float jumpForce = 5.0f;
+    [Header("Ground Check")]
+    [SerializeField] private DetectGround floorSensor;
+    [SerializeField] private LayerMask GroundLayer;
 
-    [SerializeField]
-    private float coyoteJumpForce = 10f;
-
-    [SerializeField]
-    private float gravityScale = 1.0f;
-
-    [SerializeField]
-    private float fallingMagnitude = 10f;
-
-    [SerializeField]
-    private DetectGround floorSensor;
-
-    [SerializeField]
-    private float groundDrag = 5.0f;
-
-    [SerializeField]
-    private float airDrag = 1.0f;
-
-    [SerializeField]
+    [Header("Jump")]
+    [SerializeField] private int numberOfJumpsAllowed = 1;
+    private int jumpCount = 0;
     private bool onGround = true;
 
-    [SerializeField]
-    private int numberOfJumpsAllowed = 1;
-
-    [SerializeField]
-    private int jumpCount = 0;
-
-    //dashing
+    [Header("Dash")]
     [SerializeField] private ParticleSystem dashParticles;
     [SerializeField] private float maxDashTime = 3f;
-    [SerializeField] private float dashTimeRemaining = 3f;
-
     [SerializeField] private float dashRechargeTime = 2.0f;
-
     [SerializeField] private float dashDistance = 3f;
     [SerializeField] private float additionalDashSpeed = 5f;
-    private float dashScalar = 0.0f;
-    float NewX, NewZ;
     [SerializeField] private float rechargeDelay = 2.0f;
+    [SerializeField] private GameObject ShockwavePrefab;
 
-    private float countRechargeDelay = 2.0f;
-
+    private float dashTimeRemaining;
+    private float dashScalar = 0.0f;
+    private float countRechargeDelay;
+    private bool recharging = false;
     public bool dashing = false;
+
+    [Header("Wall Run")]
     public bool OnWall;
     public Transform WallTransform;
-    private bool recharging = false;
-    [SerializeField]
-    LayerMask GroundLayer;
-    [SerializeField]
-    float GlideDelay, GlideCounter;
-    public float GetDashTimeLeft() { return dashTimeRemaining; }
-    public bool GetRecharging() { return recharging; }
-    public bool falling = false;
-    private bool apexReached;
-    [SerializeField]
-    public Animator ModelAnimator;
+    private Vector3 wallRunDirection;
 
-    [SerializeField]
-    GameObject ShockwavePrefab;
+    [Header("Gliding")]
+    public bool isGliding, isGlidingFinished,GlideTrigger;
+    [SerializeField] private float GlideDelay, GlideCounter;
 
-    float Vertical, Horizontal;
-
+    [Header("Slide")]
     [SerializeField] private float slideSpeed = 10f;
     [SerializeField] private float slideDuration = 0.8f;
     [SerializeField] private float slideCooldown = 1.0f;
     [SerializeField] private float crouchHeight = 0.5f;
     [SerializeField] private float normalHeight = 2.0f;
-    [SerializeField] private bool isSliding = false;
-    [SerializeField] private bool canSlide = true;
-    private float currentSpeed = 0f;
+    private bool isSliding = false;
+    private bool canSlide = true;
     private Coroutine slideCoroutine;
+
+    [Header("Animation")]
+    [SerializeField] private Animator ModelAnimator;
+
+    [Header("Camera")]
+    [SerializeField] private CinemachineVirtualCamera vc;
+
+    [Header("Ui Scale")]
+    [SerializeField]Transform UIPlayer;
+
+    private Vector2 moveVector;
+    private Vector3 moveDirection;
+    private float vertical, horizontal;
+    private float yRotation;
 
     private void Awake()
     {
         input = new PlayerInput();
         rb = GetComponent<Rigidbody>();
-        countRechargeDelay = rechargeDelay;
         dashTimeRemaining = maxDashTime;
+        countRechargeDelay = rechargeDelay;
+        UIPlayer.localScale = transform.localScale+new Vector3(2,2,2);
     }
 
-    void Start()
+    private void Update()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-    }
-    Vector3 CalculateForward(Vector3 toBeCalculated)
-    {
-        float currentY = toBeCalculated.y;
-        Vector3 CameraForward = Camera.main.transform.forward;
-        Vector3 CameraRight = Camera.main.transform.right;
-        CameraForward.y = 0;
-        CameraRight.y = 0;
-
-        CameraForward.Normalize();
-        CameraRight.Normalize();
-
-        Vector3 ForwardProduct = toBeCalculated.z * CameraForward;
-        Vector3 RightProduct = toBeCalculated.x * CameraRight;
-
-        Vector3 RotatedVector = ForwardProduct + RightProduct;
-        RotatedVector.y = currentY;
-        return RotatedVector;
-    }
-
-
-    public float DistanceToGround()
-    {
-        Ray r = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
-        if (Physics.Raycast(r, out hit, GroundLayer))
-        {
-            return hit.distance;
-        }
-        return 0f;
+        HandleInput();
+        HandleGlide();
+        HandleDash();
+        HandleJump();
+        HandleSlide();
+        RechargeDash();
     }
 
     private void FixedUpdate()
     {
-        Vector3 dir = new Vector3(moveVector.x, 0, moveVector.y);
-        moveDirection = CalculateForward(dir);
+        UpdateAnimator();
+        HandleRotation();
+        HandleMovement();
+    }
 
-        ModelAnimator.SetFloat("Forward", rb.velocity.magnitude);
-        ModelAnimator.SetBool("GlideStarter", isGliding);
-        ModelAnimator.SetBool("WallRun", OnWall);
-        ModelAnimator.SetBool("Dash", dashing);
-        ModelAnimator.SetBool("Air", !floorSensor.IsGroundDetected());
+    private void HandleInput()
+    {
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        moveVector = new Vector2(horizontal, vertical);
+    }
 
-        if (floorSensor.IsGroundDetected() && !isGliding)
+    private void HandleRotation()
+    {
+        if (moveVector.sqrMagnitude > 0 && !isGliding && !OnWall)
         {
-            float speedFactor = rb.velocity.magnitude / 9;  // Normalize speed (1 at normal speed)
-            ModelAnimator.speed = Mathf.Clamp(speedFactor, 0.5f, 1.0f);
-        }
-        else
-        {
-            ModelAnimator.speed = 1;
-        }
-        // Smooth Movement Rotation
-        if (moveDirection.magnitude > 0 && !isGliding && !OnWall)
-        {
-            Quaternion rot = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.fixedDeltaTime);
-        }
-
-        // Handle Dashing
-        if (dashing)
-        {
-            dashTimeRemaining -= Time.deltaTime;
-            dashScalar = Mathf.Lerp(dashScalar, 0, 0.1f);
-            if (floorSensor.IsGroundDetected())
-                dashParticles.gameObject.SetActive(true);
-            else
-                dashParticles.gameObject.SetActive(false);
-        }
-        else
-        {
-            dashScalar = 0;
-            dashParticles.gameObject.SetActive(false);
-        }
-
-        // Gliding Logic
-        if (isGliding)
-        {
-            moveVector.y = Mathf.Clamp(moveVector.y, -1f, 0f);
-            Quaternion glideRotation = Quaternion.Euler(moveVector.y * 40f, Camera.main.transform.eulerAngles.y, -moveVector.x * 40f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, glideRotation, 10f * Time.fixedDeltaTime);
-            if (Vertical != 0)
-            {
-                ModelAnimator.SetBool("Gliding", true);
-                rb.AddForce((moveSpeed + dashScalar - 2f) * transform.forward, ForceMode.Acceleration);
-            }
-            else
-            {
-                ModelAnimator.SetBool("Gliding", false);
-            }
-
-
-
-
-            //rb.AddForce((airSpeed + dashScalar) * transform.forward, ForceMode.Acceleration);
-            rb.AddForce(moveSpeed / 2 * transform.right * moveVector.x, ForceMode.Acceleration);
-            rb.AddForce(Vector3.down * (-Physics.gravity.y * 0.5f), ForceMode.Acceleration);
-
-            airDrag = 10f;
-        }
-        else
-        {
-
-            if (!OnWall)
-            {
-                rb.useGravity = true;
-                if (floorSensor.IsGroundDetected())
-                {
-                    if (moveDirection.magnitude > 0)
-                    {
-                        if (dashing)
-                        {
-                            rb.AddForce((moveSpeed + dashScalar + additionalDashSpeed) * moveDirection.normalized, ForceMode.Acceleration);
-                        }
-                        else
-                        {
-                            currentSpeed = Mathf.Lerp(currentSpeed, moveSpeed + dashScalar, Time.fixedDeltaTime * 2f);
-                            rb.AddForce(currentSpeed * moveDirection.normalized, ForceMode.Acceleration);
-                        }
-                    }
-                    jumpCount = 0;
-
-                }
-                else
-                {
-
-                    currentSpeed = 0;
-                    rb.AddForce((airSpeed + dashScalar) * moveDirection.normalized, ForceMode.Acceleration);
-                }
-            }
-            else
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(wallRunDirection);
-                Quaternion wallTilt = Quaternion.Euler(0, 0, (WallTransform.position.x - transform.position.x) * transform.right.x * 40f);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * wallTilt, 5f * Time.fixedDeltaTime);
-
-                Vector3 wallRunForce = (moveSpeed + dashScalar) * wallRunDirection;
-                rb.AddForce(wallRunForce, ForceMode.Acceleration);
-
-            }
-            airDrag = 2f;
+            Quaternion targetRotation = Quaternion.LookRotation(CalculateForward(new Vector3(moveVector.x, 0, moveVector.y)));
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.fixedDeltaTime);
         }
     }
 
-
-    private void Update()
+    private void HandleMovement()
     {
-        RechargeDash();
+        moveDirection = CalculateForward(new Vector3(moveVector.x, 0, moveVector.y));
+        if(GlideTrigger && moveDirection.magnitude != 0){
+            isGliding= true;
+        }else{
+            isGliding = false;
+        }
+        if (isGliding)
+        {
+            rb.useGravity = false;
+            rb.AddForce((moveSpeed + dashScalar - 2f) * transform.forward, ForceMode.Acceleration);
+            rb.AddForce(moveSpeed / 2 * transform.right * moveVector.x, ForceMode.Acceleration);
+             float pitch = -moveVector.y * 30f; 
+             float roll = -moveVector.x * 30f; 
+            Quaternion targetRotation = Quaternion.Euler(pitch, transform.rotation.eulerAngles.y, roll);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.fixedDeltaTime);
+            rb.AddForce(Vector3.down * (-Physics.gravity.y * 0.5f), ForceMode.Acceleration);
+        }
+        else if (OnWall)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(wallRunDirection);
+            Quaternion wallTilt = Quaternion.Euler(0, 0, (WallTransform.position.x - transform.position.x) * transform.right.x * 40f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * wallTilt, 5f * Time.fixedDeltaTime);
+            rb.AddForce((moveSpeed + dashScalar) * wallRunDirection, ForceMode.Acceleration);
+        }
+        else
+        {
+            rb.useGravity = true;
+            Vector3 force = floorSensor.IsGroundDetected()
+                ? (moveSpeed + dashScalar) * moveDirection.normalized
+                : (airSpeed + dashScalar) * moveDirection.normalized;
+
+            rb.AddForce(force, ForceMode.Acceleration);
+            if (floorSensor.IsGroundDetected()) jumpCount = 0;
+        }
+    }
+
+    private void HandleGlide()
+    {
         if (Input.GetMouseButton(0) && isGlidingFinished)
         {
             isGliding = true;
             isGlidingFinished = false;
-            ModelAnimator.SetBool("Gliding", true);
+            GlideTrigger = true;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || (isGliding && DistanceToGround() < 0.5f))
         {
             isGliding = false;
             isGlidingFinished = true;
-            ModelAnimator.SetBool("Gliding", false);
+            GlideTrigger = false;
         }
 
-        // Cancel gliding if too close to ground
-        if (isGliding && DistanceToGround() < 0.5f)
+        if (GlideTrigger)
         {
-            isGliding = false;
-            isGlidingFinished = true;
-            ModelAnimator.SetBool("Gliding", false);
-        }
-
-        // Handle Glide Timer
-        if (isGliding)
-        {
-            rb.useGravity = false;
             GlideCounter += Time.deltaTime;
             if (GlideCounter >= GlideDelay)
             {
-                isGlidingFinished = true;
                 isGliding = false;
+                isGlidingFinished = true;
+                GlideTrigger = false;
                 GlideCounter = 0;
-                ModelAnimator.SetBool("Gliding", false);
             }
         }
         else
         {
-
             GlideCounter = 0;
         }
-        Vertical = Input.GetAxis("Vertical");
-        Horizontal = Input.GetAxis("Horizontal");
-        moveVector.x = Horizontal;
-        moveVector.y = Vertical;
-        // Apply Glide Boost (Left Control)
+
         if (Input.GetKeyDown(KeyCode.LeftControl) && isGliding)
         {
             Vector3 glideBoost = transform.right * Mathf.Sign(moveVector.x) * 20f;
             rb.AddForce(glideBoost, ForceMode.Impulse);
         }
+    }
 
-        // Handle Dash (Left Shift)
+    private void HandleDash()
+    {
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashTimeRemaining > 0)
         {
             dashing = true;
             Instantiate(ShockwavePrefab, transform.position, Quaternion.identity);
             FindObjectOfType<AudioManager>().Play("Wind");
-            dashTimeRemaining -= 1;  // Reduce dash time
+            dashTimeRemaining -= 1;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -318,154 +211,58 @@ public class PlayerMovement : MonoBehaviour
             dashing = false;
             FindObjectOfType<AudioManager>().Stop("Wind");
         }
+    }
 
-        // Barge Attack (C Key)
-        if (Input.GetKeyDown(KeyCode.C) && floorSensor.IsGroundDetected())
+    private void HandleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < numberOfJumpsAllowed && !isGliding)
         {
-            ModelAnimator.SetTrigger("Barge");
-
-            Collider[] c = Physics.OverlapSphere(transform.position, 1f);
-            foreach (Collider col in c)
-            {
-                if (col.CompareTag("Player") && col.gameObject != this.gameObject)
-                {
-                    // Check if the player is in front
-                    Vector3 directionToPlayer = (col.transform.position - transform.position).normalized;
-                    float dotProduct = Vector3.Dot(transform.forward, directionToPlayer);
-
-                    if (dotProduct > 0) // Player is in front
-                    {
-                        col.GetComponent<PlayerMovement>().ModelAnimator.SetTrigger("Tripped");
-                    }
-                }
-            }
+            jumpCount++;
+            float jumpPower = jumpForce + (floorSensor.IsCoyoteEffect() ? coyoteJumpForce : 0f);
+            rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+            rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
+            ModelAnimator.SetTrigger("Jump");
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (jumpCount < numberOfJumpsAllowed && !isGliding)
-            {
-                jumpCount++;
-                float additionalJumpForce = 0.0f;
-                if (floorSensor.IsCoyoteEffect())
-                {
-                    additionalJumpForce = coyoteJumpForce;
-                }
-                if (!OnWall)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-                    rb.AddForce(Vector3.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
-                }
-                else
-                {
-                    rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-                    rb.AddForce(transform.up * (jumpForce + additionalJumpForce), ForceMode.VelocityChange);
-                }
-                ModelAnimator.SetTrigger("Jump");
-            }
-        }
+    }
+
+    private void HandleSlide()
+    {
         if (Input.GetKeyDown(KeyCode.LeftControl) && floorSensor.IsGroundDetected() && canSlide)
         {
             StartSlide();
         }
-
     }
-    void StartSlide()
+
+    private void StartSlide()
     {
         if (isSliding) return;
 
         isSliding = true;
         canSlide = false;
         ModelAnimator.SetBool("Sliding", true);
-
-        // Adjust character height (if using CharacterController)
         transform.localScale = new Vector3(transform.localScale.x, crouchHeight, transform.localScale.z);
-
-        // Apply slide force in the movement direction
         rb.AddForce(moveDirection * slideSpeed, ForceMode.VelocityChange);
 
-        // Start coroutine to end slide after duration
         slideCoroutine = StartCoroutine(EndSlide());
     }
 
-    IEnumerator EndSlide()
+    private IEnumerator EndSlide()
     {
         yield return new WaitForSeconds(slideDuration);
         isSliding = false;
         ModelAnimator.SetBool("Sliding", false);
-
-        // Restore normal height
         transform.localScale = new Vector3(transform.localScale.x, normalHeight, transform.localScale.z);
-
-        // Apply cooldown before next slide
         yield return new WaitForSeconds(slideCooldown);
         canSlide = true;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Wall"))
-        {
-            Vector3 wallNormal = collision.contacts[0].normal;
-
-            // Ensure it's not the ground or ceiling
-            if (wallNormal != Vector3.up && wallNormal != Vector3.down)
-            {
-                float wallAngle = Vector3.Angle(Vector3.up, wallNormal);
-                if (wallAngle > 85f && wallAngle < 95f) // Ensuring it's a near-vertical wall
-                {
-                    // Get proper wall run direction
-                    wallRunDirection = Vector3.ProjectOnPlane(transform.forward, wallNormal);
-                    wallRunDirection.Normalize();
-
-                    // Activate wall running
-                    ModelAnimator.SetTrigger("Wall");
-                    WallTransform = collision.collider.transform;
-                    OnWall = true;
-                    rb.useGravity = false;
-                }
-            }
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (OnWall)
-        {
-            //WallTransform = collision.collider.transform;
-            OnWall = false;
-            //rb.isKinematic = true;
-            rb.useGravity = true;
-            //rb.velocity = Vector3.zero;
-        }
-    }
-    private void OnJumpCancelled(InputAction.CallbackContext value)
-    {
-        falling = true;
-    }
-
-
-    private void OnDashPerformed(InputAction.CallbackContext value)
-    {
-
-
-    }
-    private void OnDashCancelled(InputAction.CallbackContext value)
-    {
-
-    }
-
     private void RechargeDash()
     {
-
-        //time to recharge
         recharging = true;
-
-        //Start counting down the countRechargeDelay
         if (countRechargeDelay > 0)
         {
             countRechargeDelay -= Time.deltaTime;
         }
-        //once that's done, start counting down recharge time
         else if (dashTimeRemaining < maxDashTime)
         {
             dashTimeRemaining += Time.deltaTime;
@@ -476,24 +273,58 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private Vector2 rotationVector = Vector2.zero;
-
-    private float yRotation = 0f;
-    [SerializeField] private CinemachineVirtualCamera vc;
-
-    void Look()
+    private void UpdateAnimator()
     {
-        vc.m_Lens.FieldOfView = Mathf.Lerp(vc.m_Lens.FieldOfView, 55 + moveVector.y * 5 + moveVector.x * 4, 0.05f);
-        CinemachineBasicMultiChannelPerlin pn = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-        pn.m_AmplitudeGain = Mathf.Lerp(pn.m_AmplitudeGain, moveVector.y / 2 + 1, 0.2f);
-
-        yRotation += moveVector.x * 4;
-        Vector3 faceDirection = new Vector3(0, yRotation, 0);
-        Quaternion targetRotation = Quaternion.Euler(faceDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.3f);
-
-
+        ModelAnimator.SetFloat("Forward", rb.velocity.magnitude);
+        ModelAnimator.SetBool("GlideStarter", GlideTrigger);
+        ModelAnimator.SetBool("Gliding", isGliding);
+        ModelAnimator.SetBool("WallRun", OnWall);
+        ModelAnimator.SetBool("Dash", dashing);
+        ModelAnimator.SetBool("Air", !floorSensor.IsGroundDetected());
     }
 
+    private Vector3 CalculateForward(Vector3 direction)
+    {
+        Vector3 camForward = Camera.main.transform.forward;
+        Vector3 camRight = Camera.main.transform.right;
+        camForward.y = 0;
+        camRight.y = 0;
+        return (direction.z * camForward.normalized + direction.x * camRight.normalized);
+    }
+
+    private float DistanceToGround()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, GroundLayer))
+            return hit.distance;
+        return 0f;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Wall"))
+        {
+            Vector3 wallNormal = collision.contacts[0].normal;
+            if (wallNormal != Vector3.up && wallNormal != Vector3.down)
+            {
+                float wallAngle = Vector3.Angle(Vector3.up, wallNormal);
+                if (wallAngle > 85f && wallAngle < 95f)
+                {
+                    wallRunDirection = Vector3.ProjectOnPlane(transform.forward, wallNormal).normalized;
+                    ModelAnimator.SetTrigger("Wall");
+                    WallTransform = collision.collider.transform;
+                    OnWall = true;
+                    rb.useGravity = false;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (OnWall)
+        {
+            OnWall = false;
+            rb.useGravity = true;
+        }
+    }
 }
